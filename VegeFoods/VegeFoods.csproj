@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -148,12 +149,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="vegefoods-master\about.html" />
-    <Content Include="vegefoods-master\blog-single.html" />
-    <Content Include="vegefoods-master\blog.html" />
-    <Content Include="vegefoods-master\cart.html" />
-    <Content Include="vegefoods-master\checkout.html" />
-    <Content Include="vegefoods-master\contact.html" />
     <Content Include="Assets\css\ajax-loader.gif" />
     <Content Include="Assets\css\animate.css" />
     <Content Include="Assets\css\aos.css" />
@@ -216,7 +211,6 @@
     <Content Include="Assets\images\product-7.jpg" />
     <Content Include="Assets\images\product-8.jpg" />
     <Content Include="Assets\images\product-9.jpg" />
-    <Content Include="vegefoods-master\index.html" />
     <Content Include="Assets\js\aos.js" />
     <Content Include="Assets\js\bootstrap-datepicker.js" />
     <Content Include="Assets\js\bootstrap.min.js" />
@@ -234,9 +228,6 @@
     <Content Include="Assets\js\popper.min.js" />
     <Content Include="Assets\js\range.js" />
     <Content Include="Assets\js\scrollax.min.js" />
-    <Content Include="vegefoods-master\product-single.html" />
-    <Content Include="vegefoods-master\shop.html" />
-    <Content Include="vegefoods-master\wishlist.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -248,7 +239,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="vegefoods-master\.DS_Store" />
     <Content Include="Assets\css\.DS_Store" />
     <Content Include="Assets\css\bootstrap\.DS_Store" />
     <Content Include="Assets\css\css\.DS_Store" />
@@ -277,7 +267,6 @@
     <Content Include="Assets\fonts\open-iconic\open-iconic.woff" />
     <Content Include="Assets\images\.DS_Store" />
     <Content Include="Assets\js\.DS_Store" />
-    <Content Include="vegefoods-master\prepros-6.config" />
     <Content Include="Assets\scss\.DS_Store" />
     <Content Include="Assets\scss\bootstrap\.DS_Store" />
     <Content Include="Assets\scss\bootstrap\bootstrap-grid.scss" />
@@ -368,6 +357,7 @@
     <Content Include="Assets\scss\bootstrap\_variables.scss" />
     <Content Include="Assets\scss\style.scss" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
