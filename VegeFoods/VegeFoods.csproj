@@ -197,6 +197,7 @@
     <Content Include="Areas\Admin\Assets\libs\highlight\highlight-github.scss" />
     <Content Include="Areas\Admin\Assets\libs\highlight\highlight.scss" />
     <Content Include="Areas\Admin\Assets\libs\perfect-scrollbar\perfect-scrollbar.scss" />
+    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
