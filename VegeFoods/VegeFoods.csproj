@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Assets\css\demo.css" />
+    <Content Include="Areas\Admin\Assets\iconAdmin.jpg" />
     <Content Include="Areas\Admin\Assets\js\config.js" />
     <Content Include="Areas\Admin\Assets\js\dashboards-analytics.js" />
     <Content Include="Areas\Admin\Assets\js\extended-ui-perfect-scrollbar.js" />
@@ -148,6 +149,12 @@
     <Content Include="Areas\Admin\Assets\js\ui-modals.js" />
     <Content Include="Areas\Admin\Assets\js\ui-popover.js" />
     <Content Include="Areas\Admin\Assets\js\ui-toasts.js" />
+    <Content Include="Areas\Admin\Assets\libs\apex-charts\apexcharts.js" />
+    <Content Include="Areas\Admin\Assets\libs\highlight\highlight.js" />
+    <Content Include="Areas\Admin\Assets\libs\jquery\jquery.js" />
+    <Content Include="Areas\Admin\Assets\libs\masonry\masonry.js" />
+    <Content Include="Areas\Admin\Assets\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Areas\Admin\Assets\libs\popper\popper.js" />
     <Content Include="Areas\Admin\Assets\vendor\css\core.css" />
     <Content Include="Areas\Admin\Assets\vendor\css\pages\page-account-settings.css" />
     <Content Include="Areas\Admin\Assets\vendor\css\pages\page-auth.css" />
@@ -186,6 +193,10 @@
     <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.ttf" />
     <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.woff" />
     <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.woff2" />
+    <Content Include="Areas\Admin\Assets\libs\apex-charts\apex-charts.scss" />
+    <Content Include="Areas\Admin\Assets\libs\highlight\highlight-github.scss" />
+    <Content Include="Areas\Admin\Assets\libs\highlight\highlight.scss" />
+    <Content Include="Areas\Admin\Assets\libs\perfect-scrollbar\perfect-scrollbar.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
