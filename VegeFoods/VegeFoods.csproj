@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogSingleController.cs" />
@@ -137,6 +138,37 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Assets\css\demo.css" />
+    <Content Include="Areas\Admin\Assets\js\config.js" />
+    <Content Include="Areas\Admin\Assets\js\dashboards-analytics.js" />
+    <Content Include="Areas\Admin\Assets\js\extended-ui-perfect-scrollbar.js" />
+    <Content Include="Areas\Admin\Assets\js\form-basic-inputs.js" />
+    <Content Include="Areas\Admin\Assets\js\main.js" />
+    <Content Include="Areas\Admin\Assets\js\pages-account-settings-account.js" />
+    <Content Include="Areas\Admin\Assets\js\ui-modals.js" />
+    <Content Include="Areas\Admin\Assets\js\ui-popover.js" />
+    <Content Include="Areas\Admin\Assets\js\ui-toasts.js" />
+    <Content Include="Areas\Admin\Assets\vendor\css\core.css" />
+    <Content Include="Areas\Admin\Assets\vendor\css\pages\page-account-settings.css" />
+    <Content Include="Areas\Admin\Assets\vendor\css\pages\page-auth.css" />
+    <Content Include="Areas\Admin\Assets\vendor\css\pages\page-icons.css" />
+    <Content Include="Areas\Admin\Assets\vendor\css\pages\page-misc.css" />
+    <Content Include="Areas\Admin\Assets\vendor\css\theme-default.css" />
+    <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons.css" />
+    <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.svg" />
+    <Content Include="Areas\Admin\Assets\vendor\js\bootstrap.js" />
+    <Content Include="Areas\Admin\Assets\vendor\js\helpers.js" />
+    <Content Include="Areas\Admin\Assets\vendor\js\menu.js" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\apex-charts\apex-charts.css" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\apex-charts\apexcharts.js" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\highlight\highlight-github.css" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\highlight\highlight.css" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\highlight\highlight.js" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\jquery\jquery.js" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\masonry\masonry.js" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\perfect-scrollbar\perfect-scrollbar.js" />
+    <Content Include="Areas\Admin\Assets\vendor\libs\popper\popper.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -148,6 +180,12 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.eot" />
+    <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.ttf" />
+    <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.woff" />
+    <Content Include="Areas\Admin\Assets\vendor\fonts\boxicons\boxicons.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -379,9 +417,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Controllers\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
