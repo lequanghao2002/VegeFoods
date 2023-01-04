@@ -6,13 +6,10 @@ using System.Web.Mvc;
 
 namespace VegeFoods.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class LoginController : Controller
     {
+        // GET: Admin/Login
         public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult Register()
         {
             return View();
         }

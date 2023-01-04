@@ -122,6 +122,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogSingleController.cs" />
@@ -197,8 +199,8 @@
     <Content Include="Areas\Admin\Assets\libs\highlight\highlight-github.scss" />
     <Content Include="Areas\Admin\Assets\libs\highlight\highlight.scss" />
     <Content Include="Areas\Admin\Assets\libs\perfect-scrollbar\perfect-scrollbar.scss" />
-    <Content Include="Areas\Admin\Views\Home\Login.cshtml" />
-    <Content Include="Areas\Admin\Views\Home\Register.cshtml" />
+    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Register\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
