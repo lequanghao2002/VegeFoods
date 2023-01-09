@@ -45,10 +45,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -137,6 +145,42 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BD_VegeFoods\Category.cs">
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\Order.cs">
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\OrderDetail.cs">
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\Product.cs">
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\Role.cs">
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\User.cs">
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\VegeFoodsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VegeFoodsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\VegeFoodsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\VegeFoodsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VegeFoodsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BD_VegeFoods\WareHouse.cs">
+      <DependentUpon>VegeFoodsModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +230,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\BD_VegeFoods\VegeFoodsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VegeFoodsModel.Context.cs</LastGenOutput>
+      <DependentUpon>VegeFoodsModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\BD_VegeFoods\VegeFoodsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VegeFoodsModel.edmx</DependentUpon>
+      <LastGenOutput>VegeFoodsModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
@@ -201,6 +255,13 @@
     <Content Include="Areas\Admin\Assets\libs\perfect-scrollbar\perfect-scrollbar.scss" />
     <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Register\Index.cshtml" />
+    <EntityDeploy Include="Models\BD_VegeFoods\VegeFoodsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VegeFoodsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BD_VegeFoods\VegeFoodsModel.edmx.diagram">
+      <DependentUpon>VegeFoodsModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -433,7 +494,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
@@ -448,6 +508,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

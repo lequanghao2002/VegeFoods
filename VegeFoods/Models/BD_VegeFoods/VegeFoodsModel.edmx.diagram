@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a3ba5ed4faf3407d8a5a7f2e953a82ce" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_VegeFoodModel.Category" Width="1.5" PointX="0.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_VegeFoodModel.Order" Width="1.5" PointX="6.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_VegeFoodModel.OrderDetail" Width="1.5" PointX="4.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_VegeFoodModel.Product" Width="1.5" PointX="2.375" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_VegeFoodModel.Role" Width="1.5" PointX="9.875" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_VegeFoodModel.User" Width="1.5" PointX="8.125" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_VegeFoodModel.WareHouse" Width="1.5" PointX="0.5" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="DB_VegeFoodModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_VegeFoodModel.FK_Order_User" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_VegeFoodModel.FK_OrderDetail_Order" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_VegeFoodModel.FK_OrderDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_VegeFoodModel.FK_WareHouse_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_VegeFoodModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
