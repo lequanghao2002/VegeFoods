@@ -1,4 +1,4 @@
-﻿
+﻿@model VegeFoods.Models.BD_VegeFoods.DB_VegeFoodEntities
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -121,13 +121,14 @@
                         <h4 class="mb-2">Welcome to Vege Foods! 👋</h4>
                         <p class="mb-4">Please sign-in to your account</p>
 
-                        <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+                        {
                             <div class="mb-3">
                                 <label for="email" class="form-label">Account</label>
                                 <input type="text"
                                        class="form-control"
                                        id="email"
-                                       name="email-username"
+                                       name="Account"
                                        placeholder="Enter your account"
                                        autofocus />
                             </div>
@@ -142,7 +143,7 @@
                                     <input type="password"
                                            id="password"
                                            class="form-control"
-                                           name="password"
+                                           name="Password"
                                            placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                            aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
@@ -154,10 +155,12 @@
                                     <label class="form-check-label" for="remember-me"> Remember Me </label>
                                 </div>
                             </div>
+                            @Html.ValidationSummary(false, "", new {@class="text-danger" });
+
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                             </div>
-                        </form>
+                        }
 
                         <p class="text-center">
                             <span>New on our platform?</span>
