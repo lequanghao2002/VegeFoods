@@ -18,13 +18,6 @@ namespace VegeFoods.Models.AccountModel
             return db.Users.SingleOrDefault(m => m.Account == accountName);
         }
 
-        public int Insert(User entity)
-        {
-            db.Users.Add(entity);
-            db.SaveChanges();
-            return entity.ID;
-        }
-
         public bool Login(string account, string password)
         {
             var result = db.Users.Count(m => m.Account== account 
