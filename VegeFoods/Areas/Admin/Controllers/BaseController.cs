@@ -13,13 +13,13 @@ namespace VegeFoods.Areas.Admin.Controllers
         // GET: Admin/Base
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            var session = (Session)Session["User"];
+            //var session = Session["User"];
             //if (session == null)
             //{
-                filterContext.Result = new RedirectToRouteResult(
-                    new RouteValueDictionary(
-                        new { controller = "Login", action = "Index", Area = "Admin" }
-                    ));
+            //    filterContext.Result = new RedirectToRouteResult(
+            //        new RouteValueDictionary(
+            //            new { controller = "HomeAdmin", action = "Login", Area = "Admin" }
+            //        ));
             //}
 
             base.OnActionExecuting(filterContext);

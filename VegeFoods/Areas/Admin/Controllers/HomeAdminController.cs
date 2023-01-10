@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using VegeFoods.Models.AccountModel;
 using VegeFoods.Models.BD_VegeFoods;
 
 namespace VegeFoods.Areas.Admin.Controllers
 {
-    public class LoginController : Controller
+    public class HomeAdminController : Controller
     {
         // GET: Admin/Login
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
 
+        [HttpPost]
         public ActionResult Login(User model)
         {
             if(ModelState.IsValid)
@@ -25,11 +27,12 @@ namespace VegeFoods.Areas.Admin.Controllers
                 if (result)
                 {
                     var user = new AccountModel().getID(model.Account);
-                    var userSession = new Session();
-                    userSession.UserID = user.ID;
-                    userSession.UserName = user.FullName;
+                    //var userSession = new Session();
+                    //userSession.UserID = user.ID;
+                    //userSession.UserName = user.FullName;
+                    //Session.Add("User", userSession);
 
-                    Session.Add("User", userSession);
+                    Session["User"] = user.FullName;
 
                     return RedirectToAction("Index","Role");
                 }
@@ -38,7 +41,16 @@ namespace VegeFoods.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Incorrect account or password");
                 }
             }
-            return View("Index");
+            return View();
+        }
+
+        public ActionResult Logout() 
+        {
+            Session.Remove("User");
+            // Delete session form authent
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Login");
         }
     }
 }
