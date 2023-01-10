@@ -31,7 +31,7 @@ namespace VegeFoods.Areas.Admin.Controllers
 
                     Session.Add("User", userSession);
 
-                    return RedirectToAction("List","Role");
+                    return RedirectToAction("Index","Role");
                 }
                 else
                 {
