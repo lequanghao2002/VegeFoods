@@ -13,7 +13,7 @@ namespace VegeFoods.Models.AccountModel
             db = new DB_VegeFoodEntities();
         }
 
-        public User getID(string accountName)
+        public User getUser(string accountName)
         {
             return db.Users.SingleOrDefault(m => m.Account == accountName);
         }

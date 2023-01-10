@@ -26,7 +26,7 @@ namespace VegeFoods.Areas.Admin.Controllers
                 
                 if (result)
                 {
-                    var user = new AccountModel().getID(model.Account);
+                    var user = new AccountModel().getUser(model.Account);
                     //var userSession = new Session();
                     //userSession.UserID = user.ID;
                     //userSession.UserName = user.FullName;
