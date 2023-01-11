@@ -9,7 +9,7 @@ namespace VegeFoods.Models.AccountModel
 {
     public class RoleModel
     {
-        DB_VegeFoodEntities db = null;
+        static DB_VegeFoodEntities db = null;
         public RoleModel() {
             db = new DB_VegeFoodEntities();
         }
