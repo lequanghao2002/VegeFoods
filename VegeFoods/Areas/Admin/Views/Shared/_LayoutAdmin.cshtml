@@ -213,12 +213,15 @@
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     @{
-                                                        var user = HttpContext.Current.Session["User"].ToString();
-                                                        <span class="fw-semibold d-block">
-                                                            @user
-                                                        </span>                                                   
+                                                        if (Session["User"] != null)
+                                                        {
+                                                            var user = HttpContext.Current.Session["User"].ToString();
+                                                            <span class="fw-semibold d-block">
+                                                                @user
+                                                            </span>
+                                                        }
                                                     }
-                                                    
+
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>
