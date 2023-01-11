@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.Services.Description;
 using VegeFoods.Models.AccountModel;
+using VegeFoods.Models.AdminModel;
 using VegeFoods.Models.BD_VegeFoods;
 
 namespace VegeFoods.Areas.Admin.Controllers
@@ -19,7 +20,7 @@ namespace VegeFoods.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(User model)
+        public ActionResult Login(LoginModel model)
         {
             if(ModelState.IsValid)
             {
