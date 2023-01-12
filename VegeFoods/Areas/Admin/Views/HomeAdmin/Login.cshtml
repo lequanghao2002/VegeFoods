@@ -1,4 +1,4 @@
-﻿@model VegeFoods.Models.BD_VegeFoods.DB_VegeFoodEntities
+﻿@model VegeFoods.Models.AdminModel.LoginModel
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -121,6 +121,12 @@
                         <h4 class="mb-2">Welcome to Vege Foods! 👋</h4>
                         <p class="mb-4">Please sign-in to your account</p>
 
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger text-center">@ViewBag.Error</div>
+
+                        }
+
                         @using (Html.BeginForm("Login", "HomeAdmin", FormMethod.Post))
                         {
                             <div class="mb-3">
@@ -131,6 +137,7 @@
                                        name="Account"
                                        placeholder="Enter your account"
                                        autofocus />
+                                @Html.ValidationMessageFor(model => model.Account, "", new { @class = "text-danger" })
                             </div>
                             <div class="mb-3 form-password-toggle">
                                 <div class="d-flex justify-content-between">
@@ -148,6 +155,8 @@
                                            aria-describedby="password" />
                                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                                 </div>
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
                             </div>
                             <div class="mb-3">
                                 <div class="form-check">
@@ -155,7 +164,6 @@
                                     <label class="form-check-label" for="remember-me"> Remember Me </label>
                                 </div>
                             </div>
-                            @Html.ValidationSummary(false, "", new {@class="text-danger" });
 
                             <div class="mb-3">
                                 <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>

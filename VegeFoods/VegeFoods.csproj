@@ -131,9 +131,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
-    <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
-    <Compile Include="Areas\Admin\Controllers\RegisterController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogSingleController.cs" />
@@ -147,9 +147,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModel\AccountModel.cs" />
-    <Compile Include="Models\AccountModel\Manipulation.cs" />
-    <Compile Include="Models\AccountModel\Session.cs" />
+    <Compile Include="Models\AdminModel\AccountModel.cs" />
+    <Compile Include="Models\AdminModel\LoginModel.cs" />
+    <Compile Include="Models\AdminModel\RegisterModel.cs" />
+    <Compile Include="Models\AdminModel\RoleModel.cs" />
+    <Compile Include="Models\AdminModel\Session.cs" />
+    <Compile Include="Models\AdminModel\UserModel.cs" />
     <Compile Include="Models\BD_VegeFoods\Category.cs">
       <DependentUpon>VegeFoodsModel.tt</DependentUpon>
     </Compile>
@@ -257,8 +260,7 @@
     <Content Include="Areas\Admin\Assets\libs\highlight\highlight-github.scss" />
     <Content Include="Areas\Admin\Assets\libs\highlight\highlight.scss" />
     <Content Include="Areas\Admin\Assets\libs\perfect-scrollbar\perfect-scrollbar.scss" />
-    <Content Include="Areas\Admin\Views\Login\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Register\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Login.cshtml" />
     <EntityDeploy Include="Models\BD_VegeFoods\VegeFoodsModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VegeFoodsModel.Designer.cs</LastGenOutput>
@@ -269,6 +271,8 @@
     <Content Include="Areas\Admin\Views\Role\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Role\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HomeAdmin\Register.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

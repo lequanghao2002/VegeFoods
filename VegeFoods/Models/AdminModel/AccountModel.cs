@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using VegeFoods.Models.AdminModel;
 using VegeFoods.Models.BD_VegeFoods;
 
 namespace VegeFoods.Models.AccountModel
@@ -32,37 +33,14 @@ namespace VegeFoods.Models.AccountModel
                 return false;
             }
         }
-
-        public int Register(User entity)
+    
+        public bool CheckAccount(string account)
         {
-            if (db.Users.Count(m => m.Account == entity.Account) > 0)
-            {
-                return 1;
-            } 
-            else if (entity.Password.Length < 6)
-            {
-                return 2;
-            }
-            else if (entity.rePassword != entity.Password)
-            {
-                return 3;
-            }
-            else if (db.Users.Count(m => m.Email == entity.Email) > 0)
-            {
-                return 4;
-            }
-            else if (db.Users.Count(m => m.PhoneNumber == entity.PhoneNumber) > 0)
-            {
-                return 5;
-            }
-            else
-            {
-                entity.Role_ID = 2;
-                db.Users.Add(entity);
-                db.SaveChanges();
-                return 0;
-            }
-            
+            return db.Users.Count(m => m.Account == account) > 0;
+        }
+        public bool CheckEmail(string email)
+        {
+            return db.Users.Count(m => m.Email == email) > 0;
         }
     }
 }

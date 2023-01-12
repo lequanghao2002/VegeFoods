@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using System.Web.Services.Description;
+using System.Xml.Linq;
 using VegeFoods.Models.AccountModel;
 using VegeFoods.Models.AdminModel;
 using VegeFoods.Models.BD_VegeFoods;
@@ -29,10 +31,6 @@ namespace VegeFoods.Areas.Admin.Controllers
                 if (result)
                 {
                     var user = new AccountModel().getUser(model.Account);
-                    //var userSession = new Session();
-                    //userSession.UserID = user.ID;
-                    //userSession.UserName = user.FullName;
-                    //Session.Add("User", userSession);
 
                     Session["User"] = user.FullName;
 
@@ -40,7 +38,7 @@ namespace VegeFoods.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Incorrect account or password");
+                    ViewBag.Error = "Incorrect account or password";
                 }
             }
             return View();
@@ -61,32 +59,43 @@ namespace VegeFoods.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(User model)
+        public ActionResult Register(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
-                var result = new AccountModel().Register(model);
+                var accountModel = new AccountModel();
+                if (accountModel.CheckAccount(model.Account))
+                {
+                    ViewBag.Error = "Account name already exists";
 
-                if (result == 1)
-                {
-                    ModelState.AddModelError("", "Account name already exists");
                 }
-                else if (result == 2)
+                else if (accountModel.CheckEmail(model.Email))
                 {
-                    ModelState.AddModelError("", "Password must contain at least 6 characters");
+                    ViewBag.Error = "Email already exists";
                 }
-                else if (result == 3)
+                else
                 {
-                    ModelState.AddModelError("", "Re-entered password is incorrect");
-                }
-                else if (result == 4)
-                {
-                    ModelState.AddModelError("", "Email already exists");
-                }
-                else if (result == 5)
-                {
-                    ModelState.AddModelError("", "Phone number already in use");
-                }
+                    var user = new User();
+                    user.Account = model.Account;
+                    user.Password = model.Password;
+                    user.Email = model.Email;
+                    user.PhoneNumber = model.PhoneNumber;
+                    user.FullName = model.FullName;
+
+                    user.Role_ID = 2;
+                    
+                    var result = new UserModel().Insert(user);
+                    if(result > 0)
+                    {
+                        ViewBag.Success = "Register success";
+                        // Reset model
+                        model = new RegisterModel();
+                    }
+                    else
+                    {
+                        ViewBag.Error = "Register failed";
+                    }
+                }    
             }
             
             return View(model);

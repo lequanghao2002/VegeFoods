@@ -63,7 +63,6 @@
           <Property Name="FullName" Type="nvarchar" MaxLength="50" />
           <Property Name="Account" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" />
-          <Property Name="rePassword" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
           <Property Name="Address" Type="nvarchar(max)" />
@@ -259,7 +258,6 @@
           <Property Name="Role_ID" Type="Int32" />
           <NavigationProperty Name="Orders" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
-          <Property Name="rePassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="WareHouse">
           <Key>
@@ -439,7 +437,6 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="DB_VegeFoodModel.User">
               <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="rePassword" ColumnName="rePassword" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Account" ColumnName="Account" />

@@ -11,8 +11,7 @@ namespace VegeFoods.Models.BD_VegeFoods
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,9 +22,7 @@ namespace VegeFoods.Models.BD_VegeFoods
     
         public int ID { get; set; }
         public string FullName { get; set; }
-        [Required(ErrorMessage = "Acount cannot be empty")]
         public string Account { get; set; }
-        [Required(ErrorMessage = "Password cannot be empty")]
         public string Password { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }

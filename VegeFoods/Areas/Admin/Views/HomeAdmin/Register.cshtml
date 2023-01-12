@@ -1,4 +1,4 @@
-﻿@model VegeFoods.Models.BD_VegeFoods.User
+﻿@model VegeFoods.Models.AdminModel.RegisterModel
 <!DOCTYPE html>
 
 <!-- =========================================================
@@ -121,7 +121,17 @@
                         <h4 class="mb-2">Adventure starts here 🚀</h4>
                         <p class="mb-4">Make your app management easy and fun!</p>
 
-                        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                        @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
+                        @if (ViewBag.Success != null)
+                        {
+                            <div class="alert alert-success text-center">@ViewBag.Succes</div>
+                        }
+                        @if (ViewBag.Error != null)
+                        {
+                            <div class="alert alert-danger text-center">@ViewBag.Error</div>
+
+                        }
+
                         <form id="formAuthentication" class="mb-3" action="Register" method="POST">
                             <div class="mb-3">
                                 <label for="Account" class="form-label">Account <span style="color: red">*</span></label>
@@ -141,61 +151,61 @@
                                        name="Password"
                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                        aria-describedby="password" />
-                                @Html.ValidationMessageFor(modle => Model.Password, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                             </div>
 
                             <div class="mb-3 form-password-toggle">
-                                <label class="form-label" for="rePassword">re-Password <span style="color: red">*</span></label>
+                                <label class="form-label" for="ConfirmPassword">Confirm Password <span style="color: red">*</span></label>
                                 <input type="Password"
-                                       id="rePassword"
+                                       id="ConfirmPassword"
                                        class="form-control"
-                                       name="rePassword"
+                                       name="ConfirmPassword"
                                        placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                                        aria-describedby="password" />
-                                @Html.ValidationMessageFor(modle => Model.rePassword, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
                             </div>
 
 
                             <div class="mb-3">
-                                <label for="FullName" class="form-label">Name</label>
+                                <label for="FullName" class="form-label">Full name <span style="color: red">*</span></label>
                                 <input type="text"
                                        class="form-control"
                                        id="FullName"
                                        name="FullName"
                                        placeholder="Enter your name"
                                        autofocus />
-                                @Html.ValidationMessageFor(modle => Model.FullName, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
                             </div>
 
                             <div class="mb-3">
                                 <label for="Email" class="form-label">Email <span style="color: red">*</span></label>
-                                <input type="text"
+                                <input type="email"
                                        class="form-control"
                                        id="Email"
                                        name="Email"
                                        placeholder="Enter your email" />
-                                @Html.ValidationMessageFor(modle => Model.Email, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             </div>
 
                             <div class="mb-3">
                                 <label for="PhoneNumber" class="form-label">Phone Number</label>
-                                <input type="text"
+                                <input type="number"
                                        class="form-control"
                                        id="PhoneNumber"
                                        name="PhoneNumber"
                                        placeholder="Enter your phone number" />
-                                @Html.ValidationMessageFor(modle => Model.PhoneNumber, "", new { @class = "text-danger" })
+                                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
                             </div>
 
-                            <div class="mb-3">
-                                <label for="Address" class="form-label">Address</label>
-                                <input type="text"
-                                       class="form-control"
-                                       id="Address"
-                                       name="Address"
-                                       placeholder="Enter your address" />
-                                @Html.ValidationMessageFor(modle => Model.Address, "", new { @class = "text-danger" })
-                            </div>
+                            @*<div class="mb-3">
+                <label for="Address" class="form-label">Address</label>
+                <input type="text"
+                       class="form-control"
+                       id="Address"
+                       name="Address"
+                       placeholder="Enter your address" />
+                @Html.ValidationMessageFor(modle => Model.Address, "", new { @class = "text-danger" })
+            </div>*@
 
 
                             <div class="mb-3">
