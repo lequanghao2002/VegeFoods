@@ -7,7 +7,7 @@
 
 
 <div>
-    <a href="~/Admin/Role/Create" class="btn btn-success" style="margin-bottom:15px">Create</a>
+    <a href="~/Admin/User/Create" class="btn btn-success" style="margin-bottom:15px">Create</a>
 </div>
 
 <div class="card">
@@ -39,7 +39,7 @@
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr id="row_@item.ID">
                 <td>
                     @Html.DisplayFor(modelItem => item.Account)
                 </td>
@@ -62,9 +62,13 @@
                     @Html.DisplayFor(modelItem => item.Role.Name)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    @Html.ActionLink("Edit |", "Edit", new { id = item.ID })
+                    @Ajax.ActionLink("Delete", "Delete", new { @id = item.ID }, new AjaxOptions
+                    {
+                        Confirm = "Do you watn to delete this record ?",
+                        OnComplete = "$('#row_" + item.ID + "').remove()",
+                        HttpMethod = "Delete"
+                    })
                 </td>
             </tr>
         }

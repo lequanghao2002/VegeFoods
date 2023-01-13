@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -40,13 +41,6 @@ namespace VegeFoods.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpDelete]
-        public ActionResult Delete(int id)
-        {
-            new RoleModel().Delete(id);
-            return RedirectToAction("Index");
-        }
-
         public ActionResult Edit(int id)
         {
             return View(new RoleModel().findID(id));
@@ -59,14 +53,21 @@ namespace VegeFoods.Areas.Admin.Controllers
                 var result = new RoleModel().Update(model);
                 if(result)
                 {
-                    return RedirectToAction("Index");
+                   return RedirectToAction("Index");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Role update failed");
-                }
+                } 
             }
             return View();
+        }
+
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new RoleModel().Delete(id);
+            return RedirectToAction("Index");
         }
     }
 }
