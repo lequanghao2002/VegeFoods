@@ -11,10 +11,10 @@ namespace VegeFoods.Areas.Admin.Controllers
 {
     public class RoleController : BaseController
     {
-        // GET: Admin/Role
+        RoleModel roleModel = new RoleModel();
         public ActionResult Index()
         {
-            return View(new RoleModel().getAllRoleList());
+            return View(roleModel.getAllRoleList());
         }
 
         public ActionResult Create()
@@ -26,7 +26,7 @@ namespace VegeFoods.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                int id = new RoleModel().Insert(model);
+                int id = roleModel.Insert(model);
 
                 if (id > 0)
                 {
@@ -43,22 +43,35 @@ namespace VegeFoods.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View(new RoleModel().findID(id));
+            return View(roleModel.findID(id));
         }
         [HttpPost]
         public ActionResult Edit(Role model)
         {
             if (ModelState.IsValid)
             {
-                var result = new RoleModel().Update(model);
-                if(result)
+                var role = roleModel.findID(model.ID);
+                if(role.Name == model.Name)
                 {
-                   return RedirectToAction("Index");
+                    return RedirectToAction("Index");
+                }
+                else if (roleModel.checkRoleName(model.Name))
+                {
+                    ModelState.AddModelError("", "Name already exists");
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Role update failed");
-                } 
+                    var result = roleModel.Update(model);
+                    if (result)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Role update failed");
+                    }
+                }
+                
             }
             return View();
         }
@@ -66,7 +79,7 @@ namespace VegeFoods.Areas.Admin.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new RoleModel().Delete(id);
+            roleModel.Delete(id);
             return RedirectToAction("Index");
         }
     }

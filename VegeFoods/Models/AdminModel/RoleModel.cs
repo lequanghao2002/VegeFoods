@@ -24,6 +24,11 @@ namespace VegeFoods.Models.AccountModel
             return db.Roles.Find(id);
         }
 
+        public bool checkRoleName(string name)
+        {
+            return db.Roles.Count(m => m.Name == name) > 0;
+        }
+
         public int Insert(Role entity)
         {
             db.Roles.Add(entity);
