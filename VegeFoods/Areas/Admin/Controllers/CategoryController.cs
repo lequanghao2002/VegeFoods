@@ -54,7 +54,13 @@ namespace VegeFoods.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (categoryModel.checkCategoryName(model.Name) > 1)
+                var category = categoryModel.findCategoryById(model.ID);
+                // Kiểm tra admin có thay đổi trường nào ko 
+                if (model.Name == category.Name)
+                {
+                    return RedirectToAction("Index");
+                }
+                else if (categoryModel.checkCategoryName(model.Name) > 0)
                 {
                     ModelState.AddModelError("", "Name already exists");
                 }

@@ -42,8 +42,8 @@ namespace VegeFoods.Models.AdminModel
             {
                 var updateModel = findCategoryById(entity.ID);
                 updateModel.Name = entity.Name;
-
                 db.SaveChanges();
+
                 return true;
 
             }
