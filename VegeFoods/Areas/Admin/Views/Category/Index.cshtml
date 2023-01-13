@@ -1,0 +1,46 @@
+﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Category>
+
+@{
+    ViewBag.Title = "Category List";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<div>
+    <a href="~/Admin/Category/Create" class="btn btn-success" style="margin-bottom:15px">Create</a>
+</div>
+
+<div class="card">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr id="row_@item.ID">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Ajax.ActionLink("Delete", "Delete", new { id = item.ID }, new AjaxOptions
+                   {
+                       Confirm = "Do you want to delete this record ?",
+                       OnComplete = "$('#row_" + @item.ID + "').remove()",
+                       HttpMethod = "Delete"
+                   })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
