@@ -12,7 +12,7 @@ namespace VegeFoods.Areas.Admin.Controllers
 {
     public class UserController : Controller
     {
-        UserModel user = new UserModel();
+        UserModel userModel = new UserModel();
         public void setViewBag(int? selectedID = null)
         {
             var role = new RoleModel();
@@ -22,7 +22,7 @@ namespace VegeFoods.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            return View(user.getAllUserList());
+            return View(userModel.getAllUserList());
         }
 
         public ActionResult Create()
@@ -35,19 +35,18 @@ namespace VegeFoods.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var accountModel = new AccountModel();
-                if (accountModel.CheckAccount(model.Account))
+                if (userModel.checkAccount(model.Account))
                 {
                     ModelState.AddModelError("", "Account already exists");
                 }
-                else if (accountModel.CheckEmail(model.Email))
+                else if (userModel.checkEmail(model.Email))
                 {
                     ModelState.AddModelError("", "Email already exists");
                     //ViewBag.Error = "Email already exists";
                 }
                 else
                 {
-                    int id = user.Insert(model);
+                    int id = userModel.Insert(model);
                     if (id > 0)
                     {
                         return RedirectToAction("Index");
@@ -64,7 +63,7 @@ namespace VegeFoods.Areas.Admin.Controllers
     
         public ActionResult Edit(int id)
         {
-            var result = user.findUserById(id);
+            var result = userModel.findUserById(id);
             setViewBag(result.Role_ID);
             return View(result);
         }
@@ -73,18 +72,26 @@ namespace VegeFoods.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (user.checkAccount(model.Account) > 1)
+                var user = userModel.findUserById(model.ID);
+                if (user.Account == model.Account && user.Password == model.Password
+                    && user.FullName == model.FullName && user.Email == model.Email
+                    && user.Address == model.Address && user.PhoneNumber == model.PhoneNumber
+                    && user.Role_ID == model.Role_ID)
+                {
+                    return RedirectToAction("Index");
+                }
+                else if (userModel.checkAccount(model.Account))
                 {
                     ModelState.AddModelError("", "Account already exists");
                 }
-                else if (user.checkEmail(model.Email) > 1) 
+                else if (userModel.checkEmail(model.Email))
                 {
                     ModelState.AddModelError("", "Email already exists");
                     //ViewBag.Error = "Email already exists";
                 }
                 else
                 {
-                    if (user.Update(model))
+                    if (userModel.Update(model))
                     {
                         return RedirectToAction("Index");
                     }
@@ -100,7 +107,7 @@ namespace VegeFoods.Areas.Admin.Controllers
 
         public ActionResult Delete(int id)
         {
-            user.Delete(id);
+            userModel.Delete(id);
             return RedirectToAction("Index");
         }
     }

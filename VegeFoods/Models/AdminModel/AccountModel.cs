@@ -34,13 +34,5 @@ namespace VegeFoods.Models.AccountModel
             }
         }
     
-        public bool CheckAccount(string account)
-        {
-            return db.Users.Count(m => m.Account == account) > 0;
-        }
-        public bool CheckEmail(string email)
-        {
-            return db.Users.Count(m => m.Email == email) > 0;
-        }
     }
 }

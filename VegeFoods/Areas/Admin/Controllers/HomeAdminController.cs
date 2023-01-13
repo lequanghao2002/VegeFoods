@@ -63,28 +63,28 @@ namespace VegeFoods.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var accountModel = new AccountModel();
-                if (accountModel.CheckAccount(model.Account))
+                var user = new UserModel();
+                if (user.checkAccount(model.Account))
                 {
                     ViewBag.Error = "Account name already exists";
 
                 }
-                else if (accountModel.CheckEmail(model.Email))
+                else if (user.checkEmail(model.Email))
                 {
                     ViewBag.Error = "Email already exists";
                 }
                 else
                 {
-                    var user = new User();
-                    user.Account = model.Account;
-                    user.Password = model.Password;
-                    user.Email = model.Email;
-                    user.PhoneNumber = model.PhoneNumber;
-                    user.FullName = model.FullName;
+                    var userNew = new User();
+                    userNew.Account = model.Account;
+                    userNew.Password = model.Password;
+                    userNew.Email = model.Email;
+                    userNew.PhoneNumber = model.PhoneNumber;
+                    userNew.FullName = model.FullName;
 
-                    user.Role_ID = 2;
+                    userNew.Role_ID = 2;
                     
-                    var result = new UserModel().Insert(user);
+                    var result = new UserModel().Insert(userNew);
                     if(result > 0)
                     {
                         ViewBag.Success = "Register success";

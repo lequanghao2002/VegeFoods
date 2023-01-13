@@ -29,13 +29,13 @@ namespace VegeFoods.Models.AdminModel
             return db.Users.Find(id);
         }
 
-        public int checkAccount(string account)
+        public bool checkAccount(string account)
         {
-            return db.Users.Count(m => m.Account == account);
+            return db.Users.Count(m => m.Account == account) > 0;
         }
-        public int checkEmail(string email)
+        public bool checkEmail(string email)
         {
-            return db.Users.Count(m => m.Email == email);
+            return db.Users.Count(m => m.Email == email) > 0;
         }
 
         public bool Update(User entity)
