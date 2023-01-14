@@ -11,7 +11,9 @@ namespace VegeFoods.Models.BD_VegeFoods
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,13 +24,21 @@ namespace VegeFoods.Models.BD_VegeFoods
         }
     
         public int ID { get; set; }
+
         public Nullable<int> Category_ID { get; set; }
+
+        [Required(ErrorMessage = "Name cannot be empty")]
         public string Name { get; set; }
         public string Image { get; set; }
         public string Describe { get; set; }
+
+        [Range(0, 1000, ErrorMessage = "Only allowed to enter from 0 - 1000")]
+        [Required(ErrorMessage = "Price cannot be empty")]
         public Nullable<double> Price { get; set; }
+
+        [Range(0,100,ErrorMessage = "Only allowed to enter from 0 - 100")]
         public Nullable<double> Discount { get; set; }
-    
+
         public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }

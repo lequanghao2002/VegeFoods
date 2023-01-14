@@ -15,9 +15,9 @@ namespace VegeFoods.Areas.Admin.Controllers
         UserModel userModel = new UserModel();
         public void setViewBag(int? selectedID = null)
         {
-            var role = new RoleModel();
+            var roleModel = new RoleModel();
             // SelectList(List Role, selected Value - Trường làm id, Text - Hiển thị tên trường, selected - Giá trị chọn sẵn - dùng cho edit)
-            ViewBag.Role_ID = new SelectList(role.getAllRoleList(), "ID", "Name", selectedID);
+            ViewBag.Role_ID = new SelectList(roleModel.getAllRoleList(), "ID", "Name", selectedID);
         }
 
         public ActionResult Index()
