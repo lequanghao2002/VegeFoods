@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using VegeFoods.Models.BD_VegeFoods;
 
 namespace VegeFoods.Models.AdminModel
@@ -18,6 +19,14 @@ namespace VegeFoods.Models.AdminModel
         public List<Product> getAllProductList()
         {
             return db.Products.ToList();
+        }
+
+        public List<Product> getProductListByCategory(int? filterCategoryById)
+        {
+            var result = (from product in db.Products
+                          where product.Category_ID == filterCategoryById || filterCategoryById == null
+                          select product).ToList();
+            return result;
         }
 
         public Product getProductById(int id)

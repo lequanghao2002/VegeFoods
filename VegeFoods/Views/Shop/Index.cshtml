@@ -1,7 +1,9 @@
 ﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Product>
-@{ 
+@{
     ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    IEnumerable<VegeFoods.Models.BD_VegeFoods.Category> category = new VegeFoods.Models.BD_VegeFoods.DB_VegeFoodEntities().Categories.ToList();
 }
 
 <div class="hero-wrap hero-bread" style="background-image: url('/Assets/images/bg_1.jpg');">
@@ -20,11 +22,16 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
-                    <li><a href="#" class="active">All</a></li>
-                    <li><a href="#">Vegetables</a></li>
-                    <li><a href="#">Fruits</a></li>
-                    <li><a href="#">Juice</a></li>
-                    <li><a href="#">Dried</a></li>
+                    <li>
+                        <a onclick="checkActive()" href="~/Shop/Index" class="categoryCheck active">All</a>
+                    </li>
+                    @foreach (var item in category)
+                    {
+                        <li>
+                            <a href="~/Shop/Index?idCategoryFilter=@item.ID" class="categoryCheck" onclick="checkActive()">@item.Name</a>
+                        </li>categoryCheck
+
+                    }
                 </ul>
             </div>
         </div>
@@ -115,3 +122,9 @@
     </div>
 </section>
 
+@*<script>
+    function checkActive() {
+        var elementCategory = document.getElementsByClassName("categoryCheck");
+        if ()
+    }
+</script>*@
