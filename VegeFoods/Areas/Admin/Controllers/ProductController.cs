@@ -29,6 +29,7 @@ namespace VegeFoods.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Create(Product model)
         {
             if (ModelState.IsValid)
@@ -53,6 +54,7 @@ namespace VegeFoods.Areas.Admin.Controllers
             return View(product);
         }
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(Product model)
         {
             if (ModelState.IsValid)

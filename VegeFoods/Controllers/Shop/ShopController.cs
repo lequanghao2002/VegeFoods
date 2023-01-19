@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using VegeFoods.Models.AdminModel;
 
 namespace VegeFoods.Controllers
 {
     public class ShopController : Controller
     {
-        // GET: Shop
-        public ActionResult Index()
+        ProductModel productModel = new ProductModel();
+        public ActionResult Index(string categoryFilter)
         {
+
             return View();
         }
     }

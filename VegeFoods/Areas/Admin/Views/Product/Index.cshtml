@@ -18,12 +18,12 @@
             <th>
                 Category
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Describe)
-            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Describe)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Price)
             </th>
@@ -42,14 +42,14 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Category.Name)
                 </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.Image)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Describe)
+                    </td>*@
                 <td>
-                    @Html.DisplayFor(modelItem => item.Image)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Describe)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)$
+                    @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Discount)
