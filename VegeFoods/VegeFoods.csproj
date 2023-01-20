@@ -183,7 +183,6 @@
     <Compile Include="Controllers\Shop\CartController.cs" />
     <Compile Include="Controllers\Shop\CheckOutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Shop\ProductSingleController.cs" />
     <Compile Include="Controllers\Shop\ShopController.cs" />
     <Compile Include="Controllers\Shop\WishListController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1526,13 +1525,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\WishList\Index.cshtml" />
-    <Content Include="Views\ProductSingle\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\CheckOut\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\BlogSingle\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Shop\ProductSingle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

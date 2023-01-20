@@ -29,7 +29,7 @@
                     {
                         <li>
                             <a href="~/Shop/Index?idCategoryFilter=@item.ID" class="categoryCheck" onclick="checkActive()">@item.Name</a>
-                        </li>categoryCheck
+                        </li>
 
                     }
                 </ul>
@@ -40,7 +40,7 @@
             {
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="product">
-                        <a href="#" class="img-prod">
+                        <a href="~/Shop/ProductSingle/@item.ID" class="img-prod">
                             <img class="img-fluid" src="@item.Image" alt="Colorlib Template">
                             @if (item.Discount > 0)
                             {
@@ -49,7 +49,7 @@
                             <div class="overlay"></div>
                         </a>
                         <div class="text py-3 pb-4 px-3 text-center">
-                            <h3><a href="#">@item.Name</a></h3>
+                            <h3><a href="~/Shop/ProductSingle/@item.ID">@item.Name</a></h3>
                             <div class="d-flex">
                                 <div class="pricing">
                                     <p class="price">

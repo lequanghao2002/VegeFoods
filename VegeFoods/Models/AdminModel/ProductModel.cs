@@ -34,6 +34,17 @@ namespace VegeFoods.Models.AdminModel
             return db.Products.Find(id);
         }
 
+        public List<Product> get4RelatedProducts(int id)
+        {
+            var productFind = db.Products.Find(id);
+            var result = (from product in db.Products
+                         where product.Category_ID == productFind.Category_ID
+                            && product.ID != id
+                         orderby product.ID descending
+                         select product).Take(4).ToList();
+            return result;
+        }
+
         public bool Insert(Product entity)
         {
             try

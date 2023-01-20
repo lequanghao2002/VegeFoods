@@ -15,6 +15,12 @@ namespace VegeFoods.Controllers
         {
             return View(productModel.getProductListByCategory(idCategoryFilter));    
         }
+
+        public ActionResult ProductSingle(int id)
+        {
+            ViewBag.RelatedProducts = productModel.get4RelatedProducts(id);
+            return View(productModel.getProductById(id));
+        }
         
     }
 }
