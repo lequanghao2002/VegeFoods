@@ -87,5 +87,10 @@ namespace VegeFoods.Areas.Admin.Controllers
             productModel.Delete(id);
             return RedirectToAction("Index");
         }
+
+        public ActionResult Details(int id)
+        {
+            return View(productModel.getProductById(id));
+        }
     }
 }

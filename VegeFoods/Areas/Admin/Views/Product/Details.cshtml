@@ -1,0 +1,57 @@
+﻿@model VegeFoods.Models.BD_VegeFoods.Product
+@{
+    ViewBag.Title = "Product Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <a href="@Model.Image" class="image-popup"><img src="@Model.Image" class="img-fluid" alt="Colorlib Template"></a>
+            </div>
+            <div class="col-lg-6 product-details pl-md-5 ftco-animate">
+                <h3>@Model.Name</h3>
+
+                <h5>Category: @Model.Category.Name</h5>
+                <p class="price">
+                    @if (Model.Discount > 0)
+                    {
+                        <div class="price-sale">
+                            <h5>Price: $@Model.Price</h5>
+                        </div>
+                        <div class="price-sale">
+                            <h5>Discount: @Model.Discount%</h5>
+                        </div>
+                        <div>
+                            <h5>Current Price: <span class="price-sale">$@Html.Raw(Model.Price * (100 - Model.Discount) / 100)</span></h5>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="price-sale">
+                            <h5>Price: $@Model.Price</h5>
+                        </div>
+                        <div class="price-sale">
+                            <h5>Discount: 0%</h5>
+                        </div>
+                        <div>
+                            <h5>Current Price: $@Model.Price</h5>
+                        </div>
+                    }
+                </p>
+
+                <div>
+                    <h5>@Model.Describe</h5>
+                
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.ActionLink("Back to list", "Index")
+
+

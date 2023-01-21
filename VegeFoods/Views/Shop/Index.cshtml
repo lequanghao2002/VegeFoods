@@ -21,14 +21,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
-                <ul class="product-category">
+                <ul id="filter-category" class="product-category">
                     <li>
-                        <a onclick="checkActive()" href="~/Shop/Index" class="categoryCheck active">All</a>
+                        <a href="~/Shop/Index" class="btn-category active">All</a>
                     </li>
                     @foreach (var item in category)
                     {
                         <li>
-                            <a href="~/Shop/Index?idCategoryFilter=@item.ID" class="categoryCheck" onclick="checkActive()">@item.Name</a>
+                            <a href="~/Shop/Index?idCategoryFilter=@item.ID" class="btn-category">@item.Name</a>
                         </li>
 
                     }
@@ -90,7 +90,7 @@
                 <div class="block-27">
                     <ul>
                         <li><a href="#">&lt;</a></li>
-                        <li class="active"><span>1</span></li>
+                        <li class=""><span>1</span></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li><a href="#">4</a></li>
@@ -122,9 +122,16 @@
     </div>
 </section>
 
-<script>
-    function checkActive() {
-        var elementCategory = document.getElementsByClassName("categoryCheck");
-        if ()
+@*<script>
+    var filterCategory = document.querySelectorAll('.btn-category');
+
+    for (var i = 0; i < filterCategory.length ; i++) {
+        filterCategory[i].onclick = function () {
+            var btnActived = document.querySelector('.active');
+            btnActived.classList.remove('active');
+            console.log("12300");
+            filterCategory[i].classList.add('active');
+        }
     }
-</script>
+</script>*@
+
