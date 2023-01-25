@@ -232,6 +232,7 @@
     <Compile Include="Models\BD_VegeFoods\WareHouse.cs">
       <DependentUpon>VegeFoodsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerModel\CartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1537,7 +1538,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
-    <Folder Include="UploadedFiles\" />
     <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
