@@ -64,6 +64,17 @@ namespace VegeFoods.Controllers
 
                 Session[CartSession] = cartList;
             }
+            return RedirectToAction("Index","Shop");
+        }
+    
+        public ActionResult DeleteItem(int productId)
+        {
+            var cartSession = Session[CartSession];
+            var cartList = (List<CartModel>)cartSession;
+            cartList.RemoveAll(m => m.product.ID == productId);
+
+            Session[CartSession] = cartList;
+
             return RedirectToAction("Index");
         }
     }

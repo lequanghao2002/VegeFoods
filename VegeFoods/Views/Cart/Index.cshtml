@@ -35,11 +35,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 @foreach (var item in Model)
                                 {
+                                    var priceHasDropped = item.product.Price * (100 - item.product.Discount) / 100;
+                                    var price = item.product.Price;
+                                    var quantity = item.quantity;
+
                                     <tr class="text-center">
-                                        <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
+                                        <td class="product-remove"><a href="~/Cart/DeleteItem?productId=@item.product.ID"><span class="ion-ios-close"></span></a></td>
 
                                         <td class="image-prod"><div class="img" style="background-image:url(@item.product.Image);"></div></td>
 
@@ -48,16 +51,16 @@
                                         </td>
                                         @if (item.product.Discount > 0)
                                         {
-                                            <td class="price">$@Html.Raw(item.product.Price * (100 - item.product.Discount).GetValueOrDefault(0) / 100)</td>
+                                            <td class="price">$@priceHasDropped</td>
                                         }
                                         else
                                         {
-                                            <td class="price">$@item.product.Price.GetValueOrDefault(0)</td>
+                                            <td class="price">$@price</td>
                                         }
                                         <td class="quantity">
                                             <div class="input-group mb-3">
                                                 @*<input type="text" name="quantity" class="quantity form-control @*put-number" value="@item.quantity" min="1" max="100">*@
-                                                @item.quantity
+                                                @quantity
                                             </div>
 
 
@@ -65,12 +68,13 @@
 
                                         @if (item.product.Discount > 0)
                                         {
-                                            <td class="total">$@Html.Raw((item.product.Price * (100 - item.product.Discount) / 100) * item.quantity)</td>
+                                            <td class="total">$@(priceHasDropped * quantity)</td>
                                         }
                                         else
                                         {
-                                            <td class="total">$@(item.product.Price.GetValueOrDefault(0) * item.quantity)</td>
+                                            <td class="total">$@(price * quantity)</td>
                                         }
+
                                     </tr>
                                 }
                             </tbody>
@@ -113,11 +117,24 @@
                         <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Estimate</a></p>
                     </div>
                     <div class="col-lg-4 mt-5 cart-wrap ftco-animate">
+                        @{
+                            double subtotal = 0.0, total = 0.0, discount = 0.0;
+                        }
+
+                        @foreach (var item in Model)
+                        {
+                            subtotal += (double)item.product.Price * item.quantity;
+                            if (item.product.Discount > 0)
+                            {
+                                discount += (double)(item.product.Price * (100 - item.product.Discount) / 100) * item.quantity;
+                            }
+                            total = subtotal - discount;
+                        }
                         <div class="cart-total mb-3">
                             <h3>Cart Totals</h3>
                             <p class="d-flex">
                                 <span>Subtotal</span>
-                                <span>$20.60</span>
+                                <span>$@subtotal</span>
                             </p>
                             <p class="d-flex">
                                 <span>Delivery</span>
@@ -125,15 +142,15 @@
                             </p>
                             <p class="d-flex">
                                 <span>Discount</span>
-                                <span>$3.00</span>
+                                <span>$@discount</span>
                             </p>
                             <hr>
                             <p class="d-flex total-price">
                                 <span>Total</span>
-                                <span>$17.60</span>
+                                <span>$@total</span>
                             </p>
                         </div>
-                        <p><a href="checkout.html" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+                        <p><a href="~/Shop/CheckOut" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
                     </div>
                 </div>
             }

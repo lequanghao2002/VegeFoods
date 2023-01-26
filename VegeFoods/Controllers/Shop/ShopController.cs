@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using VegeFoods.Models.AdminModel;
 using VegeFoods.Models.BD_VegeFoods;
+using VegeFoods.Models.CustomerModel;
 
 namespace VegeFoods.Controllers
 {
@@ -21,6 +22,18 @@ namespace VegeFoods.Controllers
             ViewBag.RelatedProducts = productModel.get4RelatedProducts(id);
             return View(productModel.getProductById(id));
         }
-        
+
+        private const string CartSession = "CartSession";
+        //[ChildActionOnly]
+        public PartialViewResult NavCart()
+        {
+            var cartSession = Session[CartSession];
+            var cartList = new List<CartModel>();
+            if (cartSession != null)
+            {
+                cartList = (List<CartModel>)cartSession;
+            }
+            return PartialView(cartList);
+        }
     }
 }

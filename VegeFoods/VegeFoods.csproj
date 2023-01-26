@@ -93,9 +93,11 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Concurrent" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Common" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -1533,6 +1535,7 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shop\ProductSingle.cshtml" />
+    <Content Include="Views\Shop\NavCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
