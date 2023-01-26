@@ -1,4 +1,4 @@
-﻿
+﻿@model List<VegeFoods.Models.CustomerModel.CartModel>
 @{
     ViewBag.Title = "Check Out";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Checkout</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="~/Home">Home</a></span> <span>Checkout</span></p>
                 <h1 class="mb-0 bread">Checkout</h1>
             </div>
         </div>
@@ -105,10 +105,24 @@
                 <div class="row mt-5 pt-3">
                     <div class="col-md-12 d-flex mb-5">
                         <div class="cart-detail cart-total p-3 p-md-4">
+                            @{
+                                double subtotal = 0.0, total = 0.0, discount = 0.0;
+                            }
+
+                            @foreach (var item in Model)
+                            {
+                                subtotal += (double)item.product.Price * item.quantity;
+                                if (item.product.Discount > 0)
+                                {
+                                    discount += (double)(item.product.Price * (100 - item.product.Discount) / 100) * item.quantity;
+                                }
+                                total = subtotal - discount;
+                            }
+
                             <h3 class="billing-heading mb-4">Cart Total</h3>
                             <p class="d-flex">
                                 <span>Subtotal</span>
-                                <span>$20.60</span>
+                                <span>$@subtotal</span>
                             </p>
                             <p class="d-flex">
                                 <span>Delivery</span>
@@ -116,12 +130,12 @@
                             </p>
                             <p class="d-flex">
                                 <span>Discount</span>
-                                <span>$3.00</span>
+                                <span>$@discount</span>
                             </p>
                             <hr>
                             <p class="d-flex total-price">
                                 <span>Total</span>
-                                <span>$17.60</span>
+                                <span>$@total</span>
                             </p>
                         </div>
                     </div>
