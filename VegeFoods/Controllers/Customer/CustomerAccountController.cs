@@ -46,7 +46,7 @@ namespace VegeFoods.Controllers.Customer
             // Delete session form authent
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("LoginCustomer");
+            return RedirectToAction("Index","Shop");
         }
 
         public ActionResult RegisterCustomer()
