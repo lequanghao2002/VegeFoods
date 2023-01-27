@@ -13,13 +13,20 @@ namespace VegeFoods.Controllers
         private const string CartSession = "CartSession";
         public ActionResult Index()
         {
-            var cartSession = Session[CartSession];
-            var cartList = new List<CartModel>();
-            if (cartSession != null)
+            if (Session["Customer"] != null)
             {
-                cartList = (List<CartModel>)cartSession;
+                var cartSession = Session[CartSession];
+                var cartList = new List<CartModel>();
+                if (cartSession != null)
+                {
+                    cartList = (List<CartModel>)cartSession;
+                }
+                return View(cartList);
             }
-            return View(cartList);
+            else
+            {
+                return RedirectToAction("LoginCustomer","CustomerAccount");
+            }
         }
     }
 }
