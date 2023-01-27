@@ -114,7 +114,7 @@
                                 subtotal += (double)item.product.Price * item.quantity;
                                 if (item.product.Discount > 0)
                                 {
-                                    discount += (double)(item.product.Price * (100 - item.product.Discount) / 100) * item.quantity;
+                                    discount += (double)(item.product.Price * item.product.Discount / 100) * item.quantity;
                                 }
                                 total = subtotal - discount;
                             }
