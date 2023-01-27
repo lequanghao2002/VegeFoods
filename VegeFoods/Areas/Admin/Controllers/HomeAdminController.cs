@@ -32,7 +32,7 @@ namespace VegeFoods.Areas.Admin.Controllers
                 {
                     var user = new AccountModel().getUser(model.Account);
 
-                    Session["User"] = user.FullName;
+                    Session["Admin"] = user.Account;
 
                     return RedirectToAction("Index","Role");
                 }
@@ -46,7 +46,7 @@ namespace VegeFoods.Areas.Admin.Controllers
 
         public ActionResult Logout() 
         {
-            Session.Remove("User");
+            Session.Remove("Admin");
             // Delete session form authent
             FormsAuthentication.SignOut();
 

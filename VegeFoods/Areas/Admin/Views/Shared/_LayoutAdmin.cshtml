@@ -216,9 +216,9 @@
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     @{
-                                                        if (Session["User"] != null)
+                                                        if (Session["Admin"] != null)
                                                         {
-                                                            var user = HttpContext.Current.Session["User"].ToString();
+                                                            var user = HttpContext.Current.Session["Admin"].ToString();
                                                             <span class="fw-semibold d-block">
                                                                 @user
                                                             </span>

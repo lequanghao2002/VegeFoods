@@ -8,7 +8,7 @@ using VegeFoods.Models.BD_VegeFoods;
 
 namespace VegeFoods.Areas.Admin.Controllers
 {
-    public class CategoryController : Controller
+    public class CategoryController : BaseController
     {
         CategoryModel categoryModel = new CategoryModel();
         public ActionResult Index()

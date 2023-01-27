@@ -10,7 +10,7 @@ using VegeFoods.Models.BD_VegeFoods;
 
 namespace VegeFoods.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         UserModel userModel = new UserModel();
         public void setViewBag(int? selectedID = null)

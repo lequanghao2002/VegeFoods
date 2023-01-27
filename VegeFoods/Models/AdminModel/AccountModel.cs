@@ -23,7 +23,7 @@ namespace VegeFoods.Models.AccountModel
         {
             var result = db.Users.Count(m => m.Account== account 
                                         && m.Password == password
-                                        /*&& m.Role_ID == 1*/);
+                                        && m.Role_ID == 1);
             if(result > 0 )
             {
                 return true;

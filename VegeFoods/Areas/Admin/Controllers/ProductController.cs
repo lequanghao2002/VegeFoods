@@ -8,7 +8,7 @@ using VegeFoods.Models.BD_VegeFoods;
 
 namespace VegeFoods.Areas.Admin.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : BaseController
     {
         ProductModel productModel = new ProductModel();
 
