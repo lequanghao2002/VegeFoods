@@ -19,18 +19,27 @@ namespace VegeFoods.Models.AccountModel
             return db.Users.SingleOrDefault(m => m.Account == accountName);
         }
 
-        public bool Login(string account, string password)
+        public int Login(string account, string password)
         {
-            var result = db.Users.Count(m => m.Account== account 
+            var resultAdmin = db.Users.Count(m => m.Account== account 
                                         && m.Password == password
                                         && m.Role_ID == 1);
-            if(result > 0 )
+
+            var resultCustomer = db.Users.Count(m => m.Account == account
+                                        && m.Password == password
+                                        && m.Role_ID == 2);
+
+            if (resultAdmin > 0 )
             {
-                return true;
+                return 1;
             }
-            else
+            else if (resultCustomer > 0)
             {
-                return false;
+                return 2;
+            }
+            else 
+            {
+                return 0;
             }
         }
     

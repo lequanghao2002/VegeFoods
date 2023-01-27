@@ -182,6 +182,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogSingleController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\Customer\CustomerAccountController.cs" />
     <Compile Include="Controllers\Shop\CartController.cs" />
     <Compile Include="Controllers\Shop\CheckOutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1536,6 +1537,8 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Shop\ProductSingle.cshtml" />
     <Content Include="Views\Shop\NavCart.cshtml" />
+    <Content Include="Views\CustomerAccount\LoginCustomer.cshtml" />
+    <Content Include="Views\CustomerAccount\RegisterCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,40 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using System.Web.Services.Description;
-using System.Xml.Linq;
 using VegeFoods.Models.AccountModel;
 using VegeFoods.Models.AdminModel;
 using VegeFoods.Models.BD_VegeFoods;
 
-namespace VegeFoods.Areas.Admin.Controllers
+namespace VegeFoods.Controllers.Customer
 {
-    public class HomeAdminController : Controller
+    public class CustomerAccountController : Controller
     {
-        // GET: Admin/Login
-        public ActionResult Login()
+        public ActionResult LoginCustomer()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(LoginModel model)
+        public ActionResult LoginCustomer(LoginModel model)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var result = new AccountModel().Login(model.Account, model.Password);
-                
-                if (result == 1)
+
+                if (result == 2)
                 {
                     var user = new AccountModel().getUser(model.Account);
 
-                    Session["Admin"] = user.Account;
+                    Session["Customer"] = user.Account;
 
-                    return RedirectToAction("Index","Role");
+                    return RedirectToAction("Index", "Shop");
                 }
                 else
                 {
@@ -44,22 +40,22 @@ namespace VegeFoods.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult Logout() 
+        public ActionResult LogoutCustomer()
         {
-            Session.Remove("Admin");
+            Session.Remove("Customer");
             // Delete session form authent
             FormsAuthentication.SignOut();
 
-            return RedirectToAction("Login");
+            return RedirectToAction("LoginCustomer");
         }
 
-        public ActionResult Register ()
+        public ActionResult RegisterCustomer()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult RegisterCustomer(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
@@ -83,9 +79,9 @@ namespace VegeFoods.Areas.Admin.Controllers
                     userNew.FullName = model.FullName;
 
                     userNew.Role_ID = 2;
-                    
+
                     var result = new UserModel().Insert(userNew);
-                    if(result > 0)
+                    if (result > 0)
                     {
                         ViewBag.Success = "Register success";
                         // Reset model
@@ -95,9 +91,9 @@ namespace VegeFoods.Areas.Admin.Controllers
                     {
                         ViewBag.Error = "Register failed";
                     }
-                }    
+                }
             }
-            
+
             return View(model);
         }
     }
