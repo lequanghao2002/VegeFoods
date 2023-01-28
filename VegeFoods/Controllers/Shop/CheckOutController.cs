@@ -16,6 +16,7 @@ namespace VegeFoods.Controllers
         OrderModel orderModel = new OrderModel();
         OrderDetailModel orderDetailModel = new OrderDetailModel();
         private const string CartSession = "CartSession";
+
         public ActionResult Order()
         {
             if (Session["Customer"] != null)
@@ -89,7 +90,7 @@ namespace VegeFoods.Controllers
                             orderDetailModel.Insert(orderDetail);
                         }
                         
-                        Session.Remove(CartSession);
+                        //Session.Remove(CartSession);
                         return RedirectToAction("OrderSuccess");
                     }
                 }
@@ -99,7 +100,13 @@ namespace VegeFoods.Controllers
         
         public ActionResult OrderSuccess()
         {
-            return View();
+            var cartList = (List<CartModel>)Session[CartSession];
+            var orderDetail = orderDetailModel.getOrderDetailByProductID(cartList[0].product.ID);
+
+            ViewBag.cartList = cartList;
+
+            Session.Remove(CartSession);
+            return View(orderDetail);
         }
     }
 }

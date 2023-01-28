@@ -25,5 +25,14 @@ namespace VegeFoods.Models.CustomerModel
                 return false;
             }
         }
+
+        public OrderDetail getOrderDetailByProductID(int id)
+        {
+            var result = (from orderDetail in db.OrderDetails
+                          where orderDetail.Product_ID == id
+                          select orderDetail).Take(1).SingleOrDefault();
+
+            return result;
+        }
     }
 }

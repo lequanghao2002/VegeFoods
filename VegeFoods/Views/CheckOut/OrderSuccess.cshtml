@@ -5,5 +5,90 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="alert alert-success">Order Success</div>
+<div class="container" style="color: black">
+    <div class="alert alert-success" style="text-align: center; margin: 20px 0">
+        <h5 style="color: green">Order successful - Thank you for your purchase</h5>
+    </div>
+
+    <div style="display: flex; justify-content:space-between">
+        <div class="cart-total mb-3" style="width: 48%; display: inline-block;">
+            <h3>Personal Information</h3>
+            <hr />
+            <p class="d-flex">
+                <span style=" width: 35%;">Full name: </span>
+                <span><b>@Model.Order.FullName</b></span>
+            </p>
+            <p class="d-flex">
+                <span style=" width: 35%;">Email: </span>
+                <span><b>@Model.Order.Email</b></span>
+            </p>
+            <p class="d-flex">
+                <span style=" width: 35%;">Phone Number: </span>
+                <span><b>@Model.Order.PhoneNumber</b></span>
+            </p>
+            <p class="d-flex">
+                <span style=" width: 35%;">Address: </span>
+                <span><b>@Model.Order.Address</b></span>
+            </p>
+        </div>
+
+
+        <div class="cart-total mb-3" style="width: 48%; display: inline-block;">
+            <h3>Product Information</h3>
+            <hr />
+            @{
+                var priceTotal = 0.0;
+
+                foreach (var item in ViewBag.cartList)
+                {
+                    var imageProduct = item.product.Image;
+                    var productName = item.product.Name;
+                    var quantity = item.quantity;
+                    var priceHasDropped = (item.product.Price * (100 - item.product.Discount) / 100) * quantity;
+                    var price = (item.product.Price) * quantity;
+
+                    <p class="d-flex" style="align-items: center">
+                        <span><img src="@imageProduct" alt="Alternate Text" style="width:80%"/></span>
+                        <span>@productName</span>
+
+                        @if (item.product.Discount > 0)
+                        {
+                            priceTotal += priceHasDropped;
+                            <span>$@priceHasDropped</span>
+                        }
+                        else
+                        {
+                            priceTotal += price;
+                            <span>$@price</span>
+                        }
+
+                        <span>@quantity</span>
+                    </p>
+                }
+                <hr />
+
+                <p class="d-flex">
+                    <span>Price Total</span>
+                    <span>$@priceTotal</span>
+                </p>
+                <p class="d-flex">
+                    <span>Transport fee</span>
+                    <span>$0.00</span>
+                </p>
+                <hr />
+
+                <p class="d-flex total-price">
+                    <span>Into money</span>
+                    <span>$@priceTotal</span>
+                </p>
+            }
+
+
+        </div>
+    </div>
+
+    <div style="text-align: center;margin: 30px 0 100px 0;">
+        <a href="~/Shop/Index" style="padding: 15px 60px; background: #82ae46; color: #fff; border: none; border-radius: 50px; cursor: pointer;">Keep buying</a>
+    </div>
+</div>
 
