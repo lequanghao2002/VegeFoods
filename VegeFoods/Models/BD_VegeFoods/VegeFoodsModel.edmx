@@ -34,7 +34,6 @@
           <Property Name="Product_ID" Type="int" />
           <Property Name="Price" Type="float" />
           <Property Name="Quantity" Type="int" />
-          <Property Name="Total_Money" Type="float" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -217,7 +216,6 @@
           <Property Name="Product_ID" Type="Int32" />
           <Property Name="Price" Type="Double" />
           <Property Name="Quantity" Type="Int32" />
-          <Property Name="Total_Money" Type="Double" />
           <NavigationProperty Name="Order" Relationship="Self.FK_OrderDetail_Order" FromRole="OrderDetail" ToRole="Order" />
           <NavigationProperty Name="Product" Relationship="Self.FK_OrderDetail_Product" FromRole="OrderDetail" ToRole="Product" />
         </EntityType>
@@ -409,7 +407,6 @@
                 <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Total_Money" ColumnName="Total_Money" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,6 +14,24 @@ namespace VegeFoods.Models.CustomerModel
             db = new DB_VegeFoodEntities();
         }
 
+        public List<Order> getOrderByUser(int id)
+        {
+            var result = (from order in db.Orders
+                          where order.User_ID == id 
+                          select order).ToList();
+
+            return result;
+        }
+
+        public List<Order> getOrder(int id)
+        {
+            var result = (from order in db.Orders
+                          where order.User_ID == id
+                          select order).ToList();
+
+            return result;
+        }
+
         public int Insert(Order entity)
         {
             try

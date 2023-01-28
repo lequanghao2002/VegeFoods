@@ -1543,6 +1543,10 @@
     <Content Include="Views\CustomerAccount\LoginCustomer.cshtml" />
     <Content Include="Views\CustomerAccount\RegisterCustomer.cshtml" />
     <Content Include="Views\CheckOut\OrderSuccess.cshtml" />
+    <Content Include="Views\CustomerAccount\CustomerInfo.cshtml" />
+    <Content Include="Views\CustomerAccount\YourOrder.cshtml" />
+    <Content Include="Views\CustomerAccount\AccountPage.cshtml" />
+    <Content Include="Views\CustomerAccount\YourOrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

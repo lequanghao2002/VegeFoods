@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,11 +8,14 @@ using System.Web.Security;
 using VegeFoods.Models.AccountModel;
 using VegeFoods.Models.AdminModel;
 using VegeFoods.Models.BD_VegeFoods;
+using VegeFoods.Models.CustomerModel;
 
 namespace VegeFoods.Controllers.Customer
 {
     public class CustomerAccountController : Controller
     {
+        AccountModel accountModel = new AccountModel();
+        OrderModel orderModel = new OrderModel();
         public ActionResult LoginCustomer()
         {
             return View();
@@ -96,5 +100,34 @@ namespace VegeFoods.Controllers.Customer
 
             return View(model);
         }
+
+        [ChildActionOnly]
+        public PartialViewResult AccountPage()
+        {
+            var sessionCustomer = Session["Customer"].ToString();
+            return PartialView(accountModel.getUser(sessionCustomer));
+        }
+
+        public ActionResult CustomerInfo()
+        {
+            var sessionCustomer = Session["Customer"].ToString();
+            return View(accountModel.getUser(sessionCustomer));
+        }
+
+        public ActionResult YourOrder()
+        {
+            var sessionCustomer = Session["Customer"].ToString();
+            var getUser = accountModel.getUser(sessionCustomer);
+
+            var getOrder = orderModel.getOrderByUser(getUser.ID);
+
+            return View(getOrder);
+        }
+
+        public ActionResult YourOrderDetail()
+        {
+            return View();
+        }
+
     }
 }

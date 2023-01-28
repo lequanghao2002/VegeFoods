@@ -11,8 +11,7 @@ namespace VegeFoods.Models.BD_VegeFoods
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Role
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +21,6 @@ namespace VegeFoods.Models.BD_VegeFoods
         }
     
         public int ID { get; set; }
-        [Required(ErrorMessage = "Name cannot be empty")]
         public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

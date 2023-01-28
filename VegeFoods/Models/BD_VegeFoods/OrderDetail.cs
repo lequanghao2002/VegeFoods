@@ -19,7 +19,6 @@ namespace VegeFoods.Models.BD_VegeFoods
         public Nullable<int> Product_ID { get; set; }
         public Nullable<double> Price { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public Nullable<double> Total_Money { get; set; }
     
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }

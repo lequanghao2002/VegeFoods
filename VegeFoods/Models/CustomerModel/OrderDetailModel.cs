@@ -34,5 +34,14 @@ namespace VegeFoods.Models.CustomerModel
 
             return result;
         }
+
+        public List<OrderDetail> getOrderDetailByOrderID(int id)
+        {
+            var result = (from orderDetail in db.OrderDetails
+                          where orderDetail.Order_ID == id
+                          select orderDetail).ToList();
+
+            return result;
+        }
     }
 }

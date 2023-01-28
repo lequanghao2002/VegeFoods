@@ -76,7 +76,7 @@
                         if (Session["Customer"] != null)
                         {
                             var customerName = HttpContext.Current.Session["Customer"].ToString();
-                            <li class="nav-item"><a href="~/CustomerAccount/LoginCustomer" class="nav-link">@customerName</a></li>
+                            <li class="nav-item"><a href="~/CustomerAccount/CustomerInfo" class="nav-link">@customerName</a></li>
                             <li class="nav-item"><a href="~/CustomerAccount/LogoutCustomer" class="nav-link">Log out</a></li>
                         }
                         else

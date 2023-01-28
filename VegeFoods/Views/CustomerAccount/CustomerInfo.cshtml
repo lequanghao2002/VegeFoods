@@ -1,0 +1,26 @@
+﻿@model VegeFoods.Models.BD_VegeFoods.User
+@{
+    ViewBag.Title = "Customer Info";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container  card p-3" style="margin: 40px auto 100px auto">
+    <div class="row">
+
+        @{Html.RenderAction("AccountPage", "CustomerAccount");}
+
+        <div class="col-md-9">
+            <h5 class="">ACCOUNT INFORMATION</h5>
+            <div class="">
+                <p>Full name: @Model.FullName</p>
+                <p>Email: @Model.Email</p>
+                <p>Phone number: @Model.PhoneNumber</p>
+                <p>Address: @Model.Address</p>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -24,7 +24,7 @@ namespace VegeFoods.Controllers
         }
 
         private const string CartSession = "CartSession";
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public PartialViewResult NavCart()
         {
             var cartSession = Session[CartSession];

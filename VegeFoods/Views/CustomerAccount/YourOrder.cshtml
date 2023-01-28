@@ -1,0 +1,56 @@
+﻿@model List<VegeFoods.Models.BD_VegeFoods.Order>
+@{
+    ViewBag.Title = "YourOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container  card p-3" style="margin: 40px auto 100px auto">
+    <div class="row">
+        @{Html.RenderAction("AccountPage", "CustomerAccount");}
+
+        <div class="col-md-9">
+            <h5 class="">YOUR ORDER</h5>
+
+            <div>
+                <table class="table table-bordered" style="min-width: 0!important">
+                    <tr>
+                        <th>Code</th>
+                        <th>Date</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Transport</th>
+                    </tr>
+                    @{
+                        foreach (var item in Model)
+                        {
+                            var orderDetail = new VegeFoods.Models.CustomerModel.OrderDetailModel();
+                            var getOrderDetail = orderDetail.getOrderDetailByOrderID(item.ID);
+
+                            double price = 0.0;
+                            foreach (var orderDetailItem in getOrderDetail)
+                            {
+                                price += (double)orderDetailItem.Price;
+                            }
+
+                            <tr>
+                                <td>
+                                    <a href="~/CustomerAccount/YourOrderDetail">#@item.ID</a>
+                                </td>
+                                <td> @item.OrderDate </td>
+                                <td> @item.Address </td>
+                                <td>$@price </td>
+                                <td> Wait for confirmation </td>
+                            </tr>
+                        }
+                    }
+
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
