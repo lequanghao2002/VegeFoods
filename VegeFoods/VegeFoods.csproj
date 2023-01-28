@@ -236,6 +236,9 @@
       <DependentUpon>VegeFoodsModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerModel\CartModel.cs" />
+    <Compile Include="Models\CustomerModel\CheckOutModel.cs" />
+    <Compile Include="Models\CustomerModel\OrderDetailModel.cs" />
+    <Compile Include="Models\CustomerModel\OrderModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1531,7 +1534,7 @@
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\WishList\Index.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\CheckOut\Index.cshtml" />
+    <Content Include="Views\CheckOut\Order.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
@@ -1539,6 +1542,7 @@
     <Content Include="Views\Shop\NavCart.cshtml" />
     <Content Include="Views\CustomerAccount\LoginCustomer.cshtml" />
     <Content Include="Views\CustomerAccount\RegisterCustomer.cshtml" />
+    <Content Include="Views\CheckOut\OrderSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
