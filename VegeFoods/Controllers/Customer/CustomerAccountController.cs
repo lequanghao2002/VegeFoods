@@ -16,6 +16,7 @@ namespace VegeFoods.Controllers.Customer
     {
         AccountModel accountModel = new AccountModel();
         OrderModel orderModel = new OrderModel();
+        OrderDetailModel orderDetailModel = new OrderDetailModel();
         public ActionResult LoginCustomer()
         {
             return View();
@@ -100,7 +101,7 @@ namespace VegeFoods.Controllers.Customer
 
             return View(model);
         }
-
+        
         [ChildActionOnly]
         public PartialViewResult AccountPage()
         {
@@ -124,9 +125,10 @@ namespace VegeFoods.Controllers.Customer
             return View(getOrder);
         }
 
-        public ActionResult YourOrderDetail()
+        public ActionResult YourOrderDetail(int id)
         {
-            return View();
+            var orderDetailList = orderDetailModel.getOrderDetailByOrderID(id);
+            return View(orderDetailList);
         }
 
     }

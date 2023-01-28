@@ -1,12 +1,101 @@
-﻿
+﻿@model List<VegeFoods.Models.BD_VegeFoods.OrderDetail>
 @{
-    ViewBag.Title = "YourOrderDetail";
+    ViewBag.Title = "Your Order Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container  card p-3" style="margin: 40px auto 100px auto">
+<div class="container card p-3" style="margin: 40px auto 100px auto; color: #000 !important">
     <div class="row">
         @{Html.RenderAction("AccountPage", "CustomerAccount");}
 
+        <div class="col-md-9">
+            <h5 style="display: inline-block">
+                Order details <span style="color:#82ae46">#@Model[0].Order_ID</span>
+            </h5>
+
+            <span style="float: right">Order Date: @Model[0].Order.OrderDate</span>
+
+            <div>
+                <span>Status: <b>Wait for confirmation</b></span>
+            </div>
+
+            <div style="display: flex; justify-content:space-between">
+                <div class="cart-total mb-3" style="width: 48%; display: inline-block;">
+                    <h3>Personal Information</h3>
+                    <hr />
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Full name: </span>
+                        <span><b>@Model[0].Order.FullName</b></span>
+                    </p>
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Email: </span>
+                        <span><b>@Model[0].Order.Email</b></span>
+                    </p>
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Phone Number: </span>
+                        <span><b>@Model[0].Order.PhoneNumber</b></span>
+                    </p>
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Address: </span>
+                        <span><b>@Model[0].Order.Address</b></span>
+                    </p>
+                </div>
+
+
+                <div class="cart-total mb-3" style="width: 48%; display: inline-block;">
+                    <h3>Product Information</h3>
+                    <hr />
+                    @{
+                        var priceTotal = 0.0;
+
+                        foreach (var item in Model)
+                        {
+                            var imageProduct = item.Product.Image;
+                            var productName = item.Product.Name;
+                            var quantity = item.Quantity;
+                            var priceHasDropped = (item.Product.Price * (100 - item.Product.Discount) / 100);
+                            var price = (item.Product.Price);
+
+                            <p class="d-flex" style="align-items: center; text-align: center;">
+                                <span><img src="@imageProduct" alt="Alternate Text" style="width:80%" /></span>
+                                <span>@productName</span>
+
+                                @if (item.Product.Discount > 0)
+                                {
+                                    priceTotal += (double)priceHasDropped * (double)quantity;
+                                    <span>$@priceHasDropped</span>
+                                }
+                                else
+                                {
+                                    priceTotal += (double)price * (double)quantity;
+                                    <span>$@price</span>
+                                }
+
+                                <span>@quantity</span>
+                            </p>
+                        }
+                        <hr />
+
+                        <p class="d-flex">
+                            <span>Price Total</span>
+                            <span>$@priceTotal</span>
+                        </p>
+                        <p class="d-flex">
+                            <span>Transport fee</span>
+                            <span>$0.00</span>
+                        </p>
+                        <hr />
+
+                        <p class="d-flex total-price">
+                            <span>Into money</span>
+                            <span>$@priceTotal</span>
+                        </p>
+                    }
+
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+

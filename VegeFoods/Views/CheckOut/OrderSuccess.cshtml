@@ -44,21 +44,21 @@
                     var imageProduct = item.product.Image;
                     var productName = item.product.Name;
                     var quantity = item.quantity;
-                    var priceHasDropped = (item.product.Price * (100 - item.product.Discount) / 100) * quantity;
-                    var price = (item.product.Price) * quantity;
+                    var priceHasDropped = (item.product.Price * (100 - item.product.Discount) / 100);
+                    var price = (item.product.Price);
 
-                    <p class="d-flex" style="align-items: center">
+                    <p class="d-flex" style="align-items: center;">
                         <span><img src="@imageProduct" alt="Alternate Text" style="width:80%"/></span>
                         <span>@productName</span>
 
                         @if (item.product.Discount > 0)
                         {
-                            priceTotal += priceHasDropped;
+                            priceTotal += priceHasDropped * quantity;
                             <span>$@priceHasDropped</span>
                         }
                         else
                         {
-                            priceTotal += price;
+                            priceTotal += price * quantity;
                             <span>$@price</span>
                         }
 
