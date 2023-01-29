@@ -73,6 +73,12 @@
     </table>
 </div>
 
-<div style="font-size: 20px; display: flex; justify-content: center">
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+<div class="row mt-3">
+    <div class="col text-center">
+        <div class="block-27">
+            <div style="font-size: 20px; display: flex; justify-content: center">
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+        </div>
+    </div>
 </div>

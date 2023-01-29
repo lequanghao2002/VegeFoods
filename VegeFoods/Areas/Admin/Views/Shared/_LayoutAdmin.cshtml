@@ -49,6 +49,42 @@
     <script src="~/ckeditor/ckeditor.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+
+    <style>
+        .block-27 ul {
+            padding: 0;
+            margin: 0;
+        }
+
+            .block-27 ul li {
+                display: inline-block;
+                margin-bottom: 4px;
+                font-weight: 400;
+            }
+
+                .block-27 ul li a, .block-27 ul li span {
+                    color: #000000;
+                    text-align: center;
+                    display: inline-block;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    border-radius: 50%;
+                    border: 1px solid #e6e6e6;
+                    background: #fff;
+                }
+
+                .block-27 ul li.active a, .block-27 ul li.active span {
+                    background: #82ae46;
+                    color: #fff;
+                    border: 1px solid transparent;
+                }
+
+        .text-center {
+            text-align: center !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -147,11 +183,11 @@
                     </li>
 
                     @*<li class="menu-item">
-                        <a href="~/Admin/WareHouse" class="menu-link">
-                            <i class="menu-icon fas fa-warehouse"></i>
-                            <div data-i18n="Tables">WareHouse</div>
-                        </a>
-                    </li>*@
+                            <a href="~/Admin/WareHouse" class="menu-link">
+                                <i class="menu-icon fas fa-warehouse"></i>
+                                <div data-i18n="Tables">WareHouse</div>
+                            </a>
+                        </li>*@
 
                     <!-- Order -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
@@ -163,11 +199,11 @@
                         </a>
                     </li>
                     @*<li class="menu-item">
-                        <a href="~/Admin/OrderDetail" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Order Detail</div>
-                        </a>
-                    </li>*@
+                            <a href="~/Admin/OrderDetail" class="menu-link">
+                                <i class="menu-icon tf-icons bx bx-collection"></i>
+                                <div data-i18n="Basic">Order Detail</div>
+                            </a>
+                        </li>*@
 
                 </ul>
             </aside>

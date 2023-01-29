@@ -12,7 +12,7 @@ namespace VegeFoods.Controllers
     public class ShopController : Controller
     {
         ProductModel productModel = new ProductModel();
-        public ActionResult Index(int? idCategoryFilter, int page = 1, int pageSize = 2)
+        public ActionResult Index(int? idCategoryFilter, int page = 1, int pageSize = 8)
         {
             return View(productModel.getProductListByCategory(idCategoryFilter, page, pageSize));    
         }

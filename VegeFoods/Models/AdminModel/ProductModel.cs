@@ -34,7 +34,7 @@ namespace VegeFoods.Models.AdminModel
         //                  select product).ToList();
         //    return result;
         //}
-        public IEnumerable<Product> getProductListByCategory(int? filterCategoryById, int page = 1, int pageSize = 2)
+        public IEnumerable<Product> getProductListByCategory(int? filterCategoryById, int page = 1, int pageSize = 8)
         {
             var result = (from product in db.Products
                           where product.Category_ID == filterCategoryById || filterCategoryById == null
