@@ -1,4 +1,6 @@
-﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.User>
+﻿@*@model IEnumerable<VegeFoods.Models.BD_VegeFoods.User>*@
+@model PagedList.IPagedList<VegeFoods.Models.BD_VegeFoods.User>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "User List";
@@ -14,25 +16,25 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Account)
+                Account
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Password)
+                Password
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.FullName)
+                Full Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
+                Phone Number
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Address)
+                Address
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Role)
+                Role
             </th>
             <th></th>
         </tr>
@@ -74,4 +76,8 @@
         }
 
     </table>
+</div>
+
+<div style="font-size: 20px; display: flex; justify-content: center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>

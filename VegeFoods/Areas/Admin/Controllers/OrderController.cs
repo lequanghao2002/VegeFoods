@@ -11,9 +11,9 @@ namespace VegeFoods.Areas.Admin.Controllers
     {
         OrderModel orderModel = new OrderModel();
         OrderDetailModel orderDetailModel = new OrderDetailModel();
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            return View(orderModel.getAllOrderList());
+            return View(orderModel.getOrderByPageList(page, pageSize));
         }
 
         public ActionResult Details(int id)

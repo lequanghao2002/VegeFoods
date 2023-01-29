@@ -11,9 +11,9 @@ namespace VegeFoods.Areas.Admin.Controllers
     public class CategoryController : BaseController
     {
         CategoryModel categoryModel = new CategoryModel();
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            return View(categoryModel.getListAllCategory());
+            return View(categoryModel.getCategoryByPageList(page, pageSize));
         }
 
         public ActionResult Create()

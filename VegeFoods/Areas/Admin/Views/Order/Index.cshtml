@@ -1,5 +1,6 @@
-﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Order>
-
+﻿@*@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Order>*@
+@model PagedList.IPagedList<VegeFoods.Models.BD_VegeFoods.Order>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "List";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -15,8 +16,8 @@
                 Full Name
             </th>
             @*<th>
-                Email
-            </th>*@
+                    Email
+                </th>*@
             <th>
                 Phone Number
             </th>
@@ -54,8 +55,8 @@
                     @Html.DisplayFor(modelItem => item.FullName)
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>*@
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.PhoneNumber)
                 </td>
@@ -80,4 +81,8 @@
         }
 
     </table>
+</div>
+
+<div style="font-size: 20px; display: flex; justify-content: center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>

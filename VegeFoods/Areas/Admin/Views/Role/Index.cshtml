@@ -1,5 +1,6 @@
-﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Role>
-
+﻿@*@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Role>*@
+@model PagedList.IPagedList<VegeFoods.Models.BD_VegeFoods.Role>
+@using PagedList.Mvc;
 @{
     ViewBag.Title = "List";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -44,6 +45,9 @@
     </table>
 </div>
 
+<div style="font-size: 20px; display: flex; justify-content: center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
 
 
 

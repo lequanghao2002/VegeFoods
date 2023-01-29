@@ -1,4 +1,6 @@
-﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Category>
+﻿@*@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Category>*@
+@model PagedList.IPagedList<VegeFoods.Models.BD_VegeFoods.Category>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Category List";
@@ -14,10 +16,10 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ID)
+                ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Name
             </th>
             <th>
 
@@ -46,4 +48,8 @@
         }
 
     </table>
+</div>
+
+<div style="font-size: 20px; display: flex; justify-content: center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>

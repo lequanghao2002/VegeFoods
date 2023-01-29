@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,11 @@ namespace VegeFoods.Models.AdminModel
         {
             return db.Users.ToList();
         }
+        public IEnumerable<User> getUserByPageList(int page = 1, int pageSize = 10)
+        {
+            return db.Users.OrderBy(m => m.ID).ToPagedList(page, pageSize);
+        }
+
         public int Insert(User entity)
         {
             db.Users.Add(entity);

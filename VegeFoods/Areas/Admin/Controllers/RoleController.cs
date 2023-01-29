@@ -12,9 +12,9 @@ namespace VegeFoods.Areas.Admin.Controllers
     public class RoleController : BaseController
     {
         RoleModel roleModel = new RoleModel();
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            return View(roleModel.getAllRoleList());
+            return View(roleModel.getRoleByPageList(page, pageSize));
         }
 
         public ActionResult Create()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,11 @@ namespace VegeFoods.Models.AdminModel
         public List<Product> getAllProductList()
         {
             return db.Products.ToList();
+        }
+
+        public IEnumerable<Product> getProductByPageList(int page = 1, int pageSize = 10)
+        {
+            return db.Products.OrderBy(m => m.ID).ToPagedList(page, pageSize);
         }
 
         public List<Product> getProductListByCategory(int? filterCategoryById)

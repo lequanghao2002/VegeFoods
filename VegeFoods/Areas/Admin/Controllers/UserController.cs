@@ -20,9 +20,9 @@ namespace VegeFoods.Areas.Admin.Controllers
             ViewBag.Role_ID = new SelectList(roleModel.getAllRoleList(), "ID", "Name", selectedID);
         }
 
-        public ActionResult Index()
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
-            return View(userModel.getAllUserList());
+            return View(userModel.getUserByPageList(page, pageSize));
         }
 
         public ActionResult Create()

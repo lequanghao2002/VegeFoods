@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PagedList;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,6 +18,11 @@ namespace VegeFoods.Models.AccountModel
         public List<Role> getAllRoleList()
         {
             return db.Roles.ToList();
+        }
+
+        public IEnumerable<Role> getRoleByPageList(int page = 1, int pageSize = 10)
+        {
+            return db.Roles.OrderBy(m => m.ID).ToPagedList(page, pageSize);
         }
 
         public Role findID(int id)
