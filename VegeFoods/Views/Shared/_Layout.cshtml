@@ -57,6 +57,12 @@
                 <span class="oi oi-menu"></span> Menu
             </button>
 
+            <div class="" style="width: 500px; border-radius: 50px; border: 1px solid #82ae46; padding: 3px; overflow: hidden; ">
+                <form action="~/Shop/SearchProduct" method="get">
+                    <input type="search" id="txtSearch" name="keyword" value="" placeholder="Search product..." style="border: none; padding: 0 15px; width:100%; outline: none" />
+                </form>
+            </div>
+
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active"><a href="~/Home/Index" class="nav-link">Home</a></li>
@@ -69,8 +75,8 @@
                         </div>
                     </li>
                     @*<li class="nav-item"><a href="~/About/Index" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="~/Blog/Index" class="nav-link">Blog</a></li>
-                    <li class="nav-item"><a href="~/Contact/Index" class="nav-link">Contact</a></li>*@
+                        <li class="nav-item"><a href="~/Blog/Index" class="nav-link">Blog</a></li>
+                        <li class="nav-item"><a href="~/Contact/Index" class="nav-link">Contact</a></li>*@
 
                     @{
                         if (Session["Customer"] != null)
@@ -191,5 +197,13 @@
     <script src="~/Assets/js/google-map.js"></script>
     <script src="~/Assets/js/main.js"></script>
 
+    <!-- JS New -->
+    <!-- Search Product -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="~/Assets/js/newJS/SearchProduct.js"></script>
 </body>
 </html>

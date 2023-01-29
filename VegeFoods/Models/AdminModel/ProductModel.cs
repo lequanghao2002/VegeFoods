@@ -104,5 +104,17 @@ namespace VegeFoods.Models.AdminModel
             }
             catch { return false; }
         }
+
+        public List<string> ListName(string keyword)
+        {
+            return db.Products.Where(m => m.Name.Contains(keyword)).Select(m => m.Name).ToList();
+        }
+        public IEnumerable<Product> Search(string keyword, int page = 1, int pageSize = 8)
+        {
+            var result = (from product in db.Products
+                          where product.Name.Contains(keyword)
+                          select product);
+            return result.OrderBy(m => m.ID).ToPagedList(page, pageSize);
+        }
     }
 }

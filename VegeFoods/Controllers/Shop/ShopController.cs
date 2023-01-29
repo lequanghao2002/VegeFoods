@@ -35,5 +35,20 @@ namespace VegeFoods.Controllers
             }
             return PartialView(cartList);
         }
+
+        public JsonResult ListName(string q)
+        {
+            var data = productModel.ListName(q);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult SearchProduct(string keyword, int page = 1, int pageSize = 8)
+        {
+            return View(productModel.Search(keyword, page, pageSize));
+        }
     }
 }
