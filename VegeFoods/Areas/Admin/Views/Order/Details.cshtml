@@ -1,0 +1,132 @@
+﻿@model List<VegeFoods.Models.BD_VegeFoods.OrderDetail>
+@{
+    ViewBag.Title = "Order Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+
+    var priceTotal = 0.0;
+}
+
+<div>
+    <a href="~/Admin/Order" class="btn btn-success">Back to list</a>
+</div>
+
+<div class="container card p-3" style="margin: 40px auto 100px auto; color: #000 !important">
+    <div class="row">
+        <div class="col-md-12">
+            <h5 style="display: inline-block">
+                Order details <span style="color:#82ae46">#@Model[0].Order_ID</span>
+            </h5>
+
+            <span style="float: right">Order Date: @Model[0].Order.OrderDate</span>
+
+            <div>
+                <span>Status: <b>Wait for confirmation</b></span>
+            </div>
+
+            <div style="display: flex; justify-content:space-between">
+                <div class="cart-total mb-3" style="width: 30%; display: inline-block;">
+                    <h3>Personal Information</h3>
+                    <hr />
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Full name: </span>
+                        <span><b>@Model[0].Order.FullName</b></span>
+                    </p>
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Email: </span>
+                        <span><b>@Model[0].Order.Email</b></span>
+                    </p>
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Phone Number: </span>
+                        <span><b>@Model[0].Order.PhoneNumber</b></span>
+                    </p>
+                    <p class="d-flex">
+                        <span style=" width: 35%;">Address: </span>
+                        <span><b>@Model[0].Order.Address</b></span>
+                    </p>
+                </div>
+
+
+                <div class="cart-total mb-3" style="width: 65%; display: inline-block;">
+                    <h3>Product Information</h3>
+                    <hr />
+
+                    <table class="table table-bordered">
+                        <tr>
+                            <th></th>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            var imageProduct = item.Product.Image;
+                            var productName = item.Product.Name;
+                            var quantity = item.Quantity;
+                            var priceHasDropped = (item.Product.Price * (100 - item.Product.Discount) / 100);
+                            var price = (item.Product.Price);
+
+                            <tr>
+                                <td>
+                                    <img src="@imageProduct" alt="Alternate Text" style="width:20%" />
+                                </td>
+                                <td>
+                                    <span>@productName</span>
+                                </td>
+                                <td>
+                                    @if (item.Product.Discount > 0)
+                                    {
+                                        priceTotal += (double)priceHasDropped * (double)quantity;
+                                        <span>$@priceHasDropped</span>
+                                    }
+                                    else
+                                    {
+                                        priceTotal += (double)price * (double)quantity;
+                                        <span>$@price</span>
+                                    }
+                                </td>
+                                <td>
+                                    <span>@quantity</span>
+                                </td>
+                            </tr>
+
+                            @*<p class="d-flex" style="align-items: center; text-align: center; justify-content: space-around">
+                                    <img src="@imageProduct" alt="Alternate Text" style="width:15%" />
+                                    <span>@productName</span>
+
+                                    @if (item.Product.Discount > 0)
+                                    {
+                                        priceTotal += (double)priceHasDropped * (double)quantity;
+                                        <span>$@priceHasDropped</span>
+                                    }
+                                    else
+                                    {
+                                        priceTotal += (double)price * (double)quantity;
+                                        <span>$@price</span>
+                                    }
+
+                                    <span>@quantity</span>
+                                </p>*@
+                        }
+                    </table>
+
+                    <div style="float: right; margin-top: 10px; ">
+                        <p>
+                            <span style="display: inline-block; min-width: 121px;">Price Total: </span>
+                            <span>$@priceTotal</span>
+                        </p>
+                        <p>
+                            <span style="display: inline-block; min-width: 121px;">Transport fee: </span>
+                            <span>$0.00</span>
+                        </p>
+                        <hr />
+
+                        <p>
+                            <span style="display: inline-block; min-width: 121px;"><b>Into money:</b> </span>
+                            <span>$@priceTotal</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,6 +14,11 @@ namespace VegeFoods.Models.CustomerModel
             db = new DB_VegeFoodEntities();
         }
 
+        public List<Order> getAllOrderList()
+        {
+            return db.Orders.ToList();
+        }
+
         public List<Order> getOrderByUser(int id)
         {
             var result = (from order in db.Orders

@@ -1,0 +1,83 @@
+﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Order>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="card">
+    <table class="table">
+        <tr>
+            <th>
+                Order Code
+            </th>
+            <th>
+                Full Name
+            </th>
+            @*<th>
+                Email
+            </th>*@
+            <th>
+                Phone Number
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Order Price
+            </th>
+            <th>
+                Order Date
+            </th>
+            <th>
+                Status
+            </th>
+            @*<th></th>*@
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            var orderDetail = new VegeFoods.Models.CustomerModel.OrderDetailModel();
+            var getOrderDetail = orderDetail.getOrderDetailByOrderID(item.ID);
+
+            double price = 0.0;
+            foreach (var orderDetailItem in getOrderDetail)
+            {
+                price += (double)orderDetailItem.Price;
+            }
+
+            <tr>
+                <td>
+                    <a href="~/Admin/Order/Details?id=@item.ID">#@Html.DisplayFor(modelItem => item.ID)</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    $@price
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+</div>
