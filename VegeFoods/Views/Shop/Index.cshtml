@@ -1,4 +1,7 @@
-﻿@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Product>
+﻿@*@model IEnumerable<VegeFoods.Models.BD_VegeFoods.Product>*@
+@model PagedList.IPagedList<VegeFoods.Models.BD_VegeFoods.Product>
+@using PagedList.Mvc;
+
 @{
     ViewBag.Title = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -88,18 +91,13 @@
         <div class="row mt-5">
             <div class="col text-center">
                 <div class="block-27">
-                    <ul>
-                        <li><a href="#">&lt;</a></li>
-                        <li class=""><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&gt;</a></li>
-                    </ul>
+                    <div style="font-size: 20px; display: flex; justify-content: center">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 </section>
 
@@ -123,15 +121,15 @@
 </section>
 
 @*<script>
-    var filterCategory = document.querySelectorAll('.btn-category');
+        var filterCategory = document.querySelectorAll('.btn-category');
 
-    for (var i = 0; i < filterCategory.length ; i++) {
-        filterCategory[i].onclick = function () {
-            var btnActived = document.querySelector('.active');
-            btnActived.classList.remove('active');
-            console.log("12300");
-            filterCategory[i].classList.add('active');
+        for (var i = 0; i < filterCategory.length ; i++) {
+            filterCategory[i].onclick = function () {
+                var btnActived = document.querySelector('.active');
+                btnActived.classList.remove('active');
+                console.log("12300");
+                filterCategory[i].classList.add('active');
+            }
         }
-    }
-</script>*@
+    </script>*@
 
