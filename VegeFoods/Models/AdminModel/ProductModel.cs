@@ -58,6 +58,14 @@ namespace VegeFoods.Models.AdminModel
             return result;
         }
 
+        public List<Product> get8FeaturedProducts()
+        {
+            var result = (from product in db.Products
+                          orderby product.ID descending
+                          select product).Take(8).ToList();
+            return result;
+        }
+
         public bool Insert(Product entity)
         {
             try
