@@ -6,6 +6,22 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
 
+<div class="row" style="margin-bottom: 15px">
+    <form action="~/Admin/Order" method="get">
+        <div class="col-lg-3" style="display: inline-block">
+            <input type="text" name="nameSearch" value="@ViewBag.nameSearch" class="form-control" placeholder="Enter name..." />
+        </div>
+
+        <div class="col-lg-3" style="display: inline-block">
+            <input type="text" name="phoneSearch" value="@ViewBag.phoneSearch" class="form-control" placeholder="Enter phone number..." />
+        </div>
+
+        <div class="col-lg-3" style="display:inline-block">
+            <button type="submit" class="btn btn-outline-dark" style="margin-bottom: 2px">Search</button>
+        </div>
+    </form>
+</div>
+
 <div class="card">
     <table class="table">
         <tr>

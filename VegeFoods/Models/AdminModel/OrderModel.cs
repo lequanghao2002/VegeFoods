@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 using VegeFoods.Models.BD_VegeFoods;
 
@@ -20,9 +21,12 @@ namespace VegeFoods.Models.CustomerModel
             return db.Orders.ToList();
         }
 
-        public IEnumerable<Order> getOrderByPageList(int page = 1, int pageSize = 10)
+        public IEnumerable<Order> getOrderByPageList(int page = 1, int pageSize = 10, string nameSearch = null, string phoneSearch = null)
         {
-            return db.Orders.OrderBy(m => m.ID).ToPagedList(page, pageSize);
+            var result = (from order in db.Orders
+                          where ((order.FullName.Contains(nameSearch) || nameSearch == null) && (order.PhoneNumber.Contains(phoneSearch) || phoneSearch == null))
+                          select order).ToList();
+            return result.OrderBy(m => m.ID).ToPagedList(page, pageSize);
         }
 
         public List<Order> getOrderByUser(int id)

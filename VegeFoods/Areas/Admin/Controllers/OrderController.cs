@@ -11,9 +11,11 @@ namespace VegeFoods.Areas.Admin.Controllers
     {
         OrderModel orderModel = new OrderModel();
         OrderDetailModel orderDetailModel = new OrderDetailModel();
-        public ActionResult Index(int page = 1, int pageSize = 10)
+        public ActionResult Index(int page = 1, int pageSize = 10, string nameSearch = null, string phoneSearch = null)
         {
-            return View(orderModel.getOrderByPageList(page, pageSize));
+            ViewBag.nameSearch = nameSearch;
+            ViewBag.phoneSearch = phoneSearch;
+            return View(orderModel.getOrderByPageList(page, pageSize, nameSearch, phoneSearch));
         }
 
         public ActionResult Details(int id)
