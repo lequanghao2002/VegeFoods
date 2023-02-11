@@ -42,12 +42,23 @@
                                     var quantity = item.quantity;
 
                                     <tr class="text-center">
-                                        <td class="product-remove"><a href="~/Cart/DeleteItem?productId=@item.product.ID"><span class="ion-ios-close"></span></a></td>
+                                        <td class="product-remove">
+                                            <a href="~/Cart/DeleteItem?productId=@item.product.ID">
+                                                <span class="ion-ios-close"></span>
+                                            </a>
+                                        </td>
 
-                                        <td class="image-prod"><div class="img" style="background-image:url(@item.product.Image);"></div></td>
+                                        <td class="image-prod">
+                                            <a href="~/Shop/ProductSingle/@item.product.ID">
+                                                <div class="img" style="background-image:url(@item.product.Image);">
+                                                </div>
+                                            </a>
+
+                                        </td>
 
                                         <td class="product-name">
-                                            <h3>@item.product.Name</h3>
+                                            <a href="~/Shop/ProductSingle/@item.product.ID"><h3>@item.product.Name</h3></a>
+
                                         </td>
                                         @if (item.product.Discount > 0)
                                         {
@@ -58,10 +69,10 @@
                                             <td class="price">$@price</td>
                                         }
                                         <td class="quantity">
-                                               @quantity
+                                            @quantity
                                             @*<div class="input-group mb-3">
-                                                <input type="text" name="quantity" class="quantity form-control put-number" value="@quantity" min="1" max="100">
-                                            </div>*@
+                                                    <input type="text" name="quantity" class="quantity form-control put-number" value="@quantity" min="1" max="100">
+                                                </div>*@
 
 
                                         </td>
