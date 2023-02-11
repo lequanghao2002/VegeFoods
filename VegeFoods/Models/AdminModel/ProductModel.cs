@@ -22,9 +22,14 @@ namespace VegeFoods.Models.AdminModel
             return db.Products.ToList();
         }
 
-        public IEnumerable<Product> getProductByPageList(int page = 1, int pageSize = 10)
+        public IEnumerable<Product> getProductByPageList(int page = 1, int pageSize = 10, string productSearch = null)
         {
-            return db.Products.OrderBy(m => m.ID).ToPagedList(page, pageSize);
+            var result = (from product in db.Products
+                          where product.Name.Contains(productSearch) || productSearch == null
+                          select product).ToList();
+            //return db.Products.Where(m => m.Name.Contains(productSearch)).OrderBy(m => m.ID).ToPagedList(page, pageSize);
+            return result.OrderBy(m => m.ID).ToPagedList(page, pageSize);
+
         }
 
         //public List<Product> getProductListByCategory(int? filterCategoryById)

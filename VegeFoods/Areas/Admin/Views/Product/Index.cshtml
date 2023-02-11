@@ -11,6 +11,18 @@
     <a href="~/Admin/Product/Create" class="btn btn-success" style="margin-bottom:15px">Create</a>
 </div>
 
+<div class="row" style="margin-bottom: 15px">
+    <form action="~/Admin/Product" method="get">
+        <div class="col-lg-3" style="display: inline-block">
+            <input type="text" name="productSearch" value="@ViewBag.productSearch" class="form-control" placeholder="Search product..." />
+        </div>
+
+        <div class="col-lg-3" style="display:inline-block">
+            <button type="submit" class="btn btn-outline-dark" style="margin-bottom: 2px">Search</button>
+        </div>
+    </form>
+</div>
+
 <div class="card">
     <table class="table">
         <tr>
