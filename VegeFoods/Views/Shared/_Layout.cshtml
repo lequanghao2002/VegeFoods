@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
@@ -28,6 +29,9 @@
     <link href="~/Assets/css/flaticon.css" rel="stylesheet" />
     <link href="~/Assets/css/icomoon.css" rel="stylesheet" />
     <link href="~/Assets/css/style.css" rel="stylesheet" />
+    
+    @RenderSection("linkCSS", false);
+
 </head>
 <body class="goto-here">
     <div class="py-1 bg-primary">
@@ -206,5 +210,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src="~/Assets/js/newJS/SearchProduct.js"></script>
+
+    @RenderSection("linkJS", false);
 </body>
 </html>
