@@ -29,7 +29,7 @@
     <link href="~/Assets/css/flaticon.css" rel="stylesheet" />
     <link href="~/Assets/css/icomoon.css" rel="stylesheet" />
     <link href="~/Assets/css/style.css" rel="stylesheet" />
-    
+
     @RenderSection("linkCSS", false);
 
 </head>
@@ -88,7 +88,14 @@
                         if (Session["Customer"] != null)
                         {
                             var customerName = HttpContext.Current.Session["Customer"].ToString();
-                            <li class="nav-item"><a href="~/CustomerAccount/CustomerInfo" class="nav-link">@customerName</a></li>
+                            <li class="nav-item dropdown">
+                                <a href="~/CustomerAccount/CustomerInfo" class="nav-link dropdown-toggle">@customerName</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                    <a class="dropdown-item" href="~/CustomerAccount/CustomerInfo">Account information</a>
+                                    <a class="dropdown-item" href="~/CustomerAccount/YourOrder">Your order</a>
+                                    <a class="dropdown-item" href="~/CustomerAccount/LogoutCustomer" style="border-top: 1px solid #d0cbcb">Log out</a>
+                                </div>
+                            </li>
                             <li class="nav-item"><a href="~/CustomerAccount/LogoutCustomer" class="nav-link">Log out</a></li>
                         }
                         else
