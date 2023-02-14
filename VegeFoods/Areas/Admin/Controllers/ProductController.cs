@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -18,10 +19,11 @@ namespace VegeFoods.Areas.Admin.Controllers
             ViewBag.Category_ID = new SelectList(categoryModel.getListAllCategory(), "ID", "Name", selectedID);
         }
 
-        public ActionResult Index(int page = 1, int pageSize = 10, string productSearch = null)
+        public ActionResult Index(int page = 1, int pageSize = 10, string productSearch = null, int categorySearch = 0)
         {
             ViewBag.productSearch = productSearch;
-            return View(productModel.getProductByPageList(page, pageSize, productSearch));
+            ViewBag.categorySearch = categorySearch;
+            return View(productModel.getProductByPageList(page, pageSize, productSearch, categorySearch));
         }
 
         public ActionResult Create()

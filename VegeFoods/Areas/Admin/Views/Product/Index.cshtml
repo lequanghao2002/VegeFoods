@@ -17,6 +17,14 @@
             <input type="text" name="productSearch" value="@ViewBag.productSearch" class="form-control" placeholder="Search product..." />
         </div>
 
+        <select name="categorySearch" style="padding: 8px; border-radius: 10px; outline: none">
+            <option value="0" style="display: inline-block; padding: 8px; border-radius: 10px;" @Html.Raw(ViewBag.categorySearch == 0 ? "selected" : "")>All</option>
+            <option value="1" style="padding: 8px; border-radius: 10px;" @Html.Raw(ViewBag.categorySearch == 1 ? "selected" : "")>Vegetable</option>
+            <option value="2" style="padding: 8px; border-radius: 10px;" @Html.Raw(ViewBag.categorySearch == 2 ? "selected" : "")>Fruit</option>
+            <option value="3" style="padding: 8px; border-radius: 10px;" @Html.Raw(ViewBag.categorySearch == 3 ? "selected" : "")>Juice</option>
+            <option value="4" style="padding: 8px; border-radius: 10px;" @Html.Raw(ViewBag.categorySearch == 4 ? "selected" : "")>Dried</option>
+        </select>
+
         <div class="col-lg-3" style="display:inline-block">
             <button type="submit" class="btn btn-outline-dark" style="margin-bottom: 2px">Search</button>
         </div>
