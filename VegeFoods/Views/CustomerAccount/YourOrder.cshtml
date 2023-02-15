@@ -19,6 +19,7 @@
                         <th>Address</th>
                         <th>Price</th>
                         <th>Transport</th>
+                        <th></th>
                     </tr>
                     @{
                         foreach (var item in Model)
@@ -27,6 +28,25 @@
                             var getOrderDetail = orderDetail.getOrderDetailByOrderID(item.ID);
 
                             double price = 0.0;
+
+                            string orderStatus = "";
+                            if (item.Status == 0)
+                            {
+                                orderStatus = "Canceled";
+                            }
+                            else if (item.Status == 1)
+                            {
+                                orderStatus = "Wait for confirmation";
+                            }
+                            else if (item.Status == 2)
+                            {
+                                orderStatus = "Delivering";
+                            }
+                            else if (item.Status == 3)
+                            {
+                                orderStatus = "Delivered";
+                            }
+
                             foreach (var orderDetailItem in getOrderDetail)
                             {
                                 price += (double)orderDetailItem.Price;
@@ -39,7 +59,13 @@
                                 <td> @item.OrderDate </td>
                                 <td> @item.Address </td>
                                 <td>$@price </td>
-                                <td> Wait for confirmation </td>
+                                <td> @orderStatus </td>
+                                <td>
+                                    @if (item.Status != 0)
+                                    {
+                                        <a href="~/CustomerAccount/CancelOrder?id=@item.ID">Cancel</a>
+                                    }
+                                </td>
                             </tr>
                         }
                     }

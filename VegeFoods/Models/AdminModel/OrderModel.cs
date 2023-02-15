@@ -38,13 +38,9 @@ namespace VegeFoods.Models.CustomerModel
             return result;
         }
 
-        public List<Order> getOrder(int id)
+        public Order getOrder(int id)
         {
-            var result = (from order in db.Orders
-                          where order.User_ID == id
-                          select order).ToList();
-
-            return result;
+            return db.Orders.Find(id);
         }
 
         public int Insert(Order entity)
@@ -58,6 +54,20 @@ namespace VegeFoods.Models.CustomerModel
             catch
             {
                 return 0;
+            }
+        }
+
+        public bool Cancel(Order entity)
+        {
+            try
+            {
+                entity.Status = 0;
+                db.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

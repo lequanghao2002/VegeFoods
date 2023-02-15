@@ -131,5 +131,12 @@ namespace VegeFoods.Controllers.Customer
             return View(orderDetailList);
         }
 
+        public ActionResult CancelOrder(int id)
+        {
+            var cancelOrder = orderModel.getOrder(id);
+            
+            orderModel.Cancel(cancelOrder);
+            return RedirectToAction("YourOrder");
+        }
     }
 }
