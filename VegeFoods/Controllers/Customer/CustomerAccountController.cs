@@ -34,8 +34,8 @@ namespace VegeFoods.Controllers.Customer
                     var user = new AccountModel().getUser(model.Account);
 
                     Session["Customer"] = user.Account;
-
-                    return RedirectToAction("Index", "Shop");
+                    
+                    return RedirectToAction("Index", "Cart");
                 }
                 else
                 {
