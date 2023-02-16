@@ -14,6 +14,7 @@ namespace VegeFoods.Controllers
         ProductModel productModel = new ProductModel();
         public ActionResult Index(int? idCategoryFilter, int page = 1, int pageSize = 8)
         {
+            ViewBag.idCategoryFilter = idCategoryFilter;  
             return View(productModel.getProductListByCategory(idCategoryFilter, page, pageSize));    
         }
 
