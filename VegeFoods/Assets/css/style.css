@@ -3430,8 +3430,10 @@ input[type="button"].btn-block {
   flex-grow: 1;
   text-align: center; }
 
+
 .tab-content > .tab-pane {
-  display: none; }
+    display: none;
+}
 
 .tab-content > .active {
   display: block; }
@@ -10011,3 +10013,5 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
