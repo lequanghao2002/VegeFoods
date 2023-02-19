@@ -1,14 +1,19 @@
 ﻿@model VegeFoods.Models.BD_VegeFoods.User
 
+@{ 
+    string currentRequest = Request.Url.ToString();
+}
+
+
 <div class="col-md-3" style="border-right: 1px solid #a1de97;">
     <div>
         <h5 class="title-account">ACCOUNT PAGE</h5>
         <p style="color: #000;">Hello, <span style="color: #089b21; ">@Model.FullName</span>&nbsp;</p>
         <ul style="list-style: none; padding:0">
-            <li>
+            <li class="item-account @Html.Raw(currentRequest.Contains("CustomerInfo") ? "active" : "")">
                 <a style="color: #000" href="~/CustomerAccount/CustomerInfo">Account information</a>
             </li>
-            <li>
+            <li class="item-account @Html.Raw(currentRequest.Contains("YourOrder") ? "active" : "")">
                 <a style="color: #000" href="~/CustomerAccount/YourOrder">Your order</a>
             </li>
             @*<li>
