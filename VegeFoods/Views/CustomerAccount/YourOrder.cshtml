@@ -63,7 +63,7 @@
                                 <td>
                                     @if (item.Status != 0)
                                     {
-                                        <a href="~/CustomerAccount/CancelOrder?id=@item.ID">Cancel</a>
+                                        <a href="#" onclick="orderDelete(@item.ID)">Cancel</a>
                                     }
                                 </td>
                             </tr>
@@ -79,4 +79,13 @@
 </div>
 
 
-
+@section linkJS{
+    <script>
+        function orderDelete(id) {
+            var result = confirm("Do you want to cancel order?");
+            if (result) {
+                location.href = '/CustomerAccount/CancelOrder?id=' + id;
+            }
+        }
+    </script>
+}
