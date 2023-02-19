@@ -20,7 +20,26 @@
             <span style="float: right">Order Date: @Model[0].Order.OrderDate</span>
 
             <div>
-                <span>Status: <b>Wait for confirmation</b></span>
+                @{
+                    string orderStatus = "";
+                    if (Model[0].Order.Status == 0)
+                    {
+                        orderStatus = "Canceled";
+                    }
+                    else if (Model[0].Order.Status == 1)
+                    {
+                        orderStatus = "Wait for confirmation";
+                    }
+                    else if (Model[0].Order.Status == 2)
+                    {
+                        orderStatus = "Delivering";
+                    }
+                    else if (Model[0].Order.Status == 3)
+                    {
+                        orderStatus = "Delivered";
+                    }
+                }
+                <span>Status: <b>@orderStatus</b></span>
             </div>
 
             <div style="display: flex; justify-content:space-between">
