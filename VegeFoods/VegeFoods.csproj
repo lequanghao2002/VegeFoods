@@ -256,6 +256,7 @@
     <Content Include="Areas\Admin\Assets\js\extended-ui-perfect-scrollbar.js" />
     <Content Include="Areas\Admin\Assets\js\form-basic-inputs.js" />
     <Content Include="Areas\Admin\Assets\js\main.js" />
+    <Content Include="Areas\Admin\Assets\js\main_new.js" />
     <Content Include="Areas\Admin\Assets\js\pages-account-settings-account.js" />
     <Content Include="Areas\Admin\Assets\js\ui-modals.js" />
     <Content Include="Areas\Admin\Assets\js\ui-popover.js" />
