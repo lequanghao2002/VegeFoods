@@ -158,84 +158,41 @@
                 <ul class="menu-inner py-1">
                     <!-- Role -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Role</span></li>
-                    @if (needActive.Contains("Role"))
-                    {
-                        <li class="menu-item active">
-                            <a href="~/Admin/Role" class="menu-link">
-                                <i class="menu-icon far fa-user"></i>
-                                <div data-i18n="Basic">Role</div>
-                            </a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="menu-item">
-                            <a href="~/Admin/Role" class="menu-link">
-                                <i class="menu-icon far fa-user"></i>
-                                <div data-i18n="Basic">Role</div>
-                            </a>
-                        </li>
-                    }
+                    <li class="menu-item @Html.Raw(needActive.Contains("Role") ? "active" : "")">
+                        <a href="~/Admin/Role" class="menu-link">
+                            <i class="menu-icon far fa-user"></i>
+                            <div data-i18n="Basic">Role</div>
+                        </a>
+                    </li>
 
-                    @if (needActive.Contains("User"))
-                    {
-                        <li class="menu-item active">
-                            <a href="~/Admin/User" class="menu-link">
-                                <i class="menu-icon fas fa-users-cog"></i>
-                                <div data-i18n="Basic">User</div>
-                            </a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="menu-item">
-                            <a href="~/Admin/User" class="menu-link">
-                                <i class="menu-icon fas fa-users-cog"></i>
-                                <div data-i18n="Basic">User</div>
-                            </a>
-                        </li>
-                    }
+
+                    <li class="menu-item @Html.Raw(needActive.Contains("User") ? "active" : "")">
+                        <a href="~/Admin/User" class="menu-link">
+                            <i class="menu-icon fas fa-users-cog"></i>
+                            <div data-i18n="Basic">User</div>
+                        </a>
+                    </li>
+
 
                     <!-- Product -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">PRODUCT</span></li>
-                    @if (needActive.Contains("Product"))
-                    {
-                        <li class="menu-item active">
-                            <a href="~/Admin/Product" class="menu-link">
-                                <i class="menu-icon fas fa-leaf"></i>
-                                <div data-i18n="Basic">Product</div>
-                            </a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="menu-item ">
-                            <a href="~/Admin/Product" class="menu-link">
-                                <i class="menu-icon fas fa-leaf"></i>
-                                <div data-i18n="Basic">Product</div>
-                            </a>
-                        </li>
-                    }
 
-                    @if (needActive.Contains("Category"))
-                    {
+                    <li class="menu-item @Html.Raw(needActive.Contains("Product") ? "active" : "")">
+                        <a href="~/Admin/Product" class="menu-link">
+                            <i class="menu-icon fas fa-leaf"></i>
+                            <div data-i18n="Basic">Product</div>
+                        </a>
+                    </li>
 
-                        <li class="menu-item active">
-                            <a href="~/Admin/Category" class="menu-link">
-                                <i class="menu-icon tf-icons bx bx-table"></i>
-                                <div data-i18n="Tables">Category</div>
-                            </a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="menu-item">
-                            <a href="~/Admin/Category" class="menu-link">
-                                <i class="menu-icon tf-icons bx bx-table"></i>
-                                <div data-i18n="Tables">Category</div>
-                            </a>
-                        </li>
-                    }
+
+
+                    <li class="menu-item @Html.Raw(needActive.Contains("Category") ? "active" : "")">
+                        <a href="~/Admin/Category" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-table"></i>
+                            <div data-i18n="Tables">Category</div>
+                        </a>
+                    </li>
+
 
                     @*<li class="menu-item">
                             <a href="~/Admin/WareHouse" class="menu-link">
@@ -247,24 +204,13 @@
                     <!-- Order -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Order</span></li>
 
-                    @if (needActive.Contains("Order"))
-                    {
-                        <li class="menu-item active">
-                            <a href="~/Admin/Order" class="menu-link">
-                                <i class="menu-icon fas fa-shopping-cart"></i>
-                                <div data-i18n="Basic">Order</div>
-                            </a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="menu-item">
-                            <a href="~/Admin/Order" class="menu-link">
-                                <i class="menu-icon fas fa-shopping-cart"></i>
-                                <div data-i18n="Basic">Order</div>
-                            </a>
-                        </li>
-                    }
+                    <li class="menu-item @Html.Raw(needActive.Contains("Order") ? "active" : "")">
+                        <a href="~/Admin/Order" class="menu-link">
+                            <i class="menu-icon fas fa-shopping-cart"></i>
+                            <div data-i18n="Basic">Order</div>
+                        </a>
+                    </li>
+
                     @*<li class="menu-item">
                             <a href="~/Admin/OrderDetail" class="menu-link">
                                 <i class="menu-icon tf-icons bx bx-collection"></i>
