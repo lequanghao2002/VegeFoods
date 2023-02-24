@@ -42,6 +42,7 @@
                 <p class="price">
                     @if (Model.Discount > 0)
                     {
+                        <span class="price-sale " style="color: #aaa; margin-right: 10px"><del>$@Model.Price</del></span>
                         <span class="price-sale">$@Html.Raw(Model.Price * (100 - Model.Discount) / 100)</span>
                     }
                     else
