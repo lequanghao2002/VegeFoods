@@ -63,7 +63,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Role.Name)
                 </td>
-                <td>
+                @*<td>
                     @Html.ActionLink("Edit |", "Edit", new { id = item.ID })
                     @Ajax.ActionLink("Delete", "Delete", new { @id = item.ID }, new AjaxOptions
                     {
@@ -71,7 +71,7 @@
                         OnComplete = "$('#row_" + item.ID + "').remove()",
                         HttpMethod = "Delete"
                     })
-                </td>
+                </td>*@
             </tr>
         }
 

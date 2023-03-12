@@ -49,7 +49,7 @@
 
                             foreach (var orderDetailItem in getOrderDetail)
                             {
-                                price += (double)orderDetailItem.Price;
+                                price += (double)orderDetailItem.Price * (double)orderDetailItem.Quantity;
                             }
 
                             <tr>
